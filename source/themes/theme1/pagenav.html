@@ -1,0 +1,32 @@
+{#
+    cat basic/sourcelink.html basic/relations.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Sphinx sidebar template: "show source" link.
+
+    Sphinx sidebar template: relation links.
+
+    :copyright: Copyright 2007-2011 by the Sphinx team, see AUTHORS.
+    :license: BSD, see LICENSE for details.
+#}
+
+<h2><a href="{{ pathto('index') }}">{{ _('PredictionIO Guide') }}</a>
+<small>(<a href="{{ pathto(master_doc) }}">{{ _('TOC') }}</a>, <a href="{{ pathto('genindex') }}">{{ _('Index') }}</a>)</small>
+</h2>
+
+{{ toctree(maxdepth=-1) }}
+ 
+<h2>Knowledge Base </h2>
+<ul class="kb-menu">
+  <li><a href="{{ pathto('tutorial') }}">Tutorials</a></li>
+  <li><a href="{{ pathto('faq') }}">Frequently Asked Questions</a></li>
+  <li><a href="{{ pathto('use-cases') }}">Use Cases</a></li>
+</ul>
+
+<h2>PredictionIO SDKs</h2>
+<ul class="kb-menu">
+  <li><a href="http://rubydoc.info/github/PredictionIO/PredictionIO-Ruby-SDK/master/frames" target="_blank">Ruby SDK Doc</a></li>
+  <li>Python SDK Doc (coming soon)</li>
+  <li>PHP SDK Doc (coming soon)</li>
+  <li>Java SDK Doc (coming soon)</li>
+</ul>

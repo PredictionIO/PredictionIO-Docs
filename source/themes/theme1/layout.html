@@ -98,10 +98,10 @@
   
   <link href="http://prediction.io/assets/stylesheets/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="http://prediction.io/assets/stylesheets/responsive.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="static/stylesheets/font-awesome.css" media="screen" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="static/stylesheets/font-awesome.min.css"/>
+  <link href="{{ pathto('_static/stylesheets/font-awesome.css', 1) }}" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{{ pathto('_static/stylesheets/font-awesome.min.css', 1) }}"/>
     <!--[if IE 7]>
-    <link rel="stylesheet" href="static/stylesheets/font-awesome-ie7.min.css"/>
+    <link rel="stylesheet" href="{{ pathto('_static/stylesheets/font-awesome-ie7.min.css', 1) }}"/>
     <!-- [endif]-->
 
   <link href="http://prediction.io/assets/stylesheets/theme.css" media="screen" rel="stylesheet" type="text/css" />
@@ -158,14 +158,14 @@
               <span class="icon-bar"></span>
             </a>
             <h1 class="brand">
-              <a href="/">
+              <a href="http://prediction.io/">
                 <img src="http://prediction.io/assets/images/PredictionIO-logo.png" width="220px"/>
               </a>
             </h1>
             <div class="nav-collapse collapse">
-              <a href="/download" class="pull-right marginLeft btn btn-primary btn-small">Download</a>              
+              <a href="http://prediction.io/download" class="pull-right marginLeft btn btn-primary btn-small">Download</a>              
               <ul class="nav pull-right">
-                <li class="active"><a href="/docs">Docs</a></li>
+                <li class="active"><a href="http://docs.prediction.io/">Docs</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Community</a>
                   <ul class="dropdown-menu">
@@ -194,7 +194,7 @@
     <div id="content" role="main">
       <section class="section alt" id="promo">
 		  <div class="container">
-		    <h1>PredictionIO Guide</h1>
+		    <h1><a href="/">PredictionIO Guide</a></h1>
 		  </div>
 		</section>
 		<div id="docsContainer" class="section">
@@ -226,11 +226,11 @@
             <ul class="icons">
               <li>
                     <i class="icon-circle-blank"></i>
-                    <a href="/download">Download</a>
+                    <a href="http://prediction.io/download">Download</a>
               </li>
               <li>
                     <i class="icon-circle-blank"></i>
-                    <a href="/docs">Docs</a>
+                    <a href="http://docs.prediction.io/">Docs</a>
               </li>
               <li>
                     <i class="icon-circle-blank"></i>

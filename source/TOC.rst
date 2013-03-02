@@ -6,10 +6,18 @@
 Table of Contents
 ==================
 
+.. begin-toc
+
 .. toctree::
    :maxdepth: 2
 
    quickstart
+   installation
+   concepts
+   engines-and-algorithms
+   api
+
+.. end-toc
 
 Indices and tables
 ==================

@@ -10,11 +10,51 @@
  */
 /* @import url("basic.css"); */
 
+.section {
+    padding: 20px 0;
+}
 .docs-sidebar-menu {
     font-size: 78%;
     border-left: 1px dashed #41B7D8;
     padding-left: 20px;
 }
+
+div#btnv {
+    padding-bottom: 2.5em;
+    padding-top: 2em;
+}
+div#btnv ul#btnvl {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: auto;
+}
+div#btnv ul#btnvl li {
+    display: inline;
+    font-size: 100%;
+    margin: 0;
+    padding: 1em;
+    width: 33%;
+}
+div#btnv ul#btnvl li#btnvup:before, div#btnv ul#btnvl li#btnvnx:before {
+    color: #C48C55;
+    content: " ";
+    padding-left: 1em;
+    padding-right: 1em;
+}
+h2 small {
+    font-size: 12px;
+}
+#docsContainer a.headerlink {
+    font-size: 0.8em;
+    padding: 0 0 0 7px;
+    text-decoration: none;
+    visibility: hidden;
+}
+#docsContainer *:hover > a.headerlink { 
+    visibility: visible; 
+}
+
 .navbar .container {
     width: 1170px;
 }
@@ -34,14 +74,17 @@ body {
 }
 #docsContainer h1 {
     border-top: 5px solid white;
-    font-size: 150%;
+    font-size: 160%;
     margin-top: 0;
 }
 #docsContainer h2 {
-    font-size: 120%;
+    font-size: 135%;
+    font-weight: bold;
 }
 #docsContainer h3 {
     font-size: 110%;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 15px;
 }
 #docsContainer h4 {
     font-size: 100%;
@@ -51,4 +94,86 @@ body {
 }
 #docsContainer h6 {
     font-size: 80%;
+}
+
+
+div.admonition p.admonition-title + p {
+    display: inline;
+}
+div.highlight {
+    background-color: white;
+}
+dl.binary {
+    display: none;
+}
+div.topic {
+    background-color: #EEEEEE;
+}
+div.admonition {
+    margin: 1.5em auto;
+    max-width: 90%;
+    padding: 0;
+    width: auto;
+}
+div.seealso {
+    max-width: 95%;
+    padding-bottom: 7px;
+}
+div.warning {
+    background-color: #FEEFB3;
+    padding: 0.5em 1em;
+}
+
+li > blockquote {
+    border: none;
+    margin-bottom: 20px;
+    padding: 0;
+}
+div > blockquote {
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 14px;
+    padding: 0.5em 1em;
+    background-color: White;
+    color: #222222;
+    border: 1px solid #DCDCDC;
+    margin: 17px;
+}
+div > blockquote p {
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+div.note {
+    background-color: inherit;
+    border: 1px solid #DCDCDC;
+    padding: 0.5em 1em;
+}
+div.admonition-optional {
+    background-color: inherit;
+    border: 1px solid #DCDCDC;
+    padding: 0.5em 1em;
+}
+div.admonition-example {
+    background-color: #F5F5F5;
+    color: #000000;
+    padding: 0.5em 1em;
+}
+div.admonition p.admonition-title {
+    display: inline;
+    font-weight: 900;
+    height: 100%;
+}
+p.admonition-title:after {
+    content: ":";
+    font-weight: 900;
+}
+div.admonition pre {
+    margin: 10px 0;
+}
+pre {
+    background-color: White;
+    color: #222222;
+    margin: 20px;
+    padding: 10px;
 }

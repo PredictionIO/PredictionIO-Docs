@@ -25,7 +25,7 @@ Simply clone PredictionIO to your local machine.
 The following steps assume that you have cloned the repo at your home directory.
 
     cd ~
-    
+
     git clone git://github.com/PredictionIO/PredictionIO.git
 
 Downloading Apache Mahout
@@ -46,11 +46,11 @@ Compiling PredictionIO
 Compile dependencies first using sbt.
 
     cd ~/PredictionIO/commons
-    
+
     sbt clean update +publish
-    
+
     cd ~/PredictionIO/output
-    
+
     sbt clean update +publish
 
 If you run into any memory space problem, you may want to try adding `-Xmx512m` to your `sbt` commands, e.g.
@@ -63,23 +63,15 @@ Compile and build the process assembly using sbt,
 where `>` indicates commands that will be run in the sbt console.
 
     cd ~/PredictionIO/process/hadoop/scala
-    
-    sbt
-    
-    > clean
-    
-    > update
-    
-    > project scala-assembly
-    
-    > assembly
-    
+
+    sbt clean update assembly
+
 **MAP@k Top-K Items Collector**
 
 Compile and build the collector using sbt.
 
     cd ~/PredictionIO/process/hadoop/scala/engines/itemrec/evaluations/topkitems
-    
+
     sbt clean update assembly
 
 **Command-line User Administration Tool**
@@ -93,15 +85,15 @@ If this is not the case, update the configuration in
 `~/PredictionIO/tools/users/src/main/resources/application.conf` before compiling.
 
     io.prediction.commons.settings.db.type=mongodb
-    
+
     io.prediction.commons.settings.db.host=your.host.com
-    
+
     io.prediction.commons.settings.db.port=12345
 
 After that, compile the tool.
 
     cd ~/PredictionIO/tools/users
-    
+
     sbt clean update pack
 
 Adding a User
@@ -130,15 +122,15 @@ Assuming you have installed the Play framework at /opt/play,
 where `>` indicates commands that will be run in the Play console.
 
     cd ~/PredictionIO/adminServer
-    
+
     /opt/play/play
-    
+
     > clean
-    
+
     > update
-    
+
     > compile
-    
+
     > run
 
 To access the admin panel, point your browser to http://localhost:9000/.
@@ -151,15 +143,15 @@ Again, change the configuration in `~/PredictionIO/output/api/conf/application.c
 where you see fit. With the same assumption from the step before,
 
     cd ~/PredictionIO/output/api
-    
+
     /opt/play/play
-    
+
     > clean
-    
+
     > update
-    
+
     > compile
-    
+
     > run 8000
 
 This will start the API server on the default port 8000.
@@ -176,15 +168,15 @@ that can be resolved by all nodes in your Hadoop farm.
 With the same assumption from the step before,
 
     cd ~/PredictionIO/scheduler
-    
+
     /opt/play/play
-    
+
     > clean
-    
+
     > update
-    
+
     > compile
-    
+
     > run 7000
 
 This will start the scheduler on the default port 7000.
@@ -200,7 +192,7 @@ In 0.2, PredictionIO stores its algorithm settings in a more modular way.
 This breaks backward compatibility with 0.1 and requires a tool to migrate this data.
 
     cd ~/PredictionIO/tools/migration/0.2/algoinfos
-    
+
     sbt clean update run
 
 Follow the on-screen instructions to complete the migration.

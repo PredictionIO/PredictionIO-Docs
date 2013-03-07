@@ -1,6 +1,8 @@
 {%- block doctype -%}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 {%- endblock %}
 
 {%- set url_root = pathto('', 1) %}
@@ -80,14 +82,14 @@
 {% endmacro -%}
 
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!--[if gt IE 8] -->
+<html lang="en">
+<!-- <![endif] -->
 <head>
+    <meta charset="utf-8" />
 	{%- block htmltitle %}
 	<title>{{ title|striptags|e }}{{ titlesuffix }}</title>
 	{%- endblock %}
-	<meta name="robots" content="index" />
-	<meta http-equiv="Content-Type" content="text/html; charset={{ encoding }}" />
 
   <meta content="PredictionIO Open Source Machine Learning Server" name="description" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -95,6 +97,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <link href="http://prediction.io/assets/images/favicon.ico" rel="shortcut icon" />
+  <link rel="apple-touch-icon-precomposed" href="http://prediction.io/assets/images/iosicon.png" />
   
   <link href="http://prediction.io/assets/stylesheets/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="http://prediction.io/assets/stylesheets/responsive.css" media="screen" rel="stylesheet" type="text/css" />
@@ -144,6 +147,20 @@
 {%- endblock %}
 
 {%- block extrahead %} {% endblock %}
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-38306178-1']);
+    _gaq.push(['_setDomainName', 'prediction.io']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 </head>
 
 <body class="theme-pattern-subtle-grey">
@@ -159,7 +176,7 @@
             </a>
             <h1 class="brand">
               <a href="http://prediction.io/">
-                <img src="http://prediction.io/assets/images/PredictionIO-logo.png" width="220px"/>
+                <img src="http://prediction.io/assets/images/PredictionIO-logo.png" width="160px"/>
               </a>
             </h1>
             <div class="nav-collapse collapse">

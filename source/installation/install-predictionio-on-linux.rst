@@ -41,6 +41,18 @@ Once you have downloaded and unpacked the content, copy `mahout-core-0.7-job.jar
 Compiling PredictionIO
 ~~~~~~~~~~~~~~~~~~~~~~
 
+Automatic Build
+***************
+
+PredictionIO ships with it a build script that helps you download and install build prerequisites automatically.
+
+    cd ~/PredictionIO
+
+    bin/build.sh
+
+Manual Build
+************
+
 **Common Dependencies**
 
 Compile dependencies first using sbt.
@@ -182,7 +194,7 @@ With the same assumption from the step before,
 This will start the scheduler on the default port 7000.
 
 
-UPGRADING
+Upgrading
 ---------
 
 From 0.1 to 0.2

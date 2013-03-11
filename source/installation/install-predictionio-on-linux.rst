@@ -5,19 +5,31 @@ Installing PredictionIO on Linux
 Prerequisites
 -------------
 
-The current default PredictionIO setup assumes that you have the following installed and configured in a trusted environment:
+
+The current default PredictionIO setup assumes that you have the following environment:
 
 * At least 512MB of free memory for building the source
 * A recent version of Linux (other OS's have not been tested yet)
 * JDK 7.0+ (may work with JDK 6 but untested at the moment)
+
+To run PredictionIO, the following softwares are required: 
+
 * Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command)
 * MongoDB 2.0+ (http://www.mongodb.org/)
 * Scala 2.9.2 and 2.10.0+ (sbt will download correct compilers automatically) (http://www.scala-lang.org/)
 * sbt 0.12.1+ (http://www.scala-sbt.org/)
 * Play 2.1+ (http://www.playframework.org/)
 
+.. note::
+
+   You may still continue the installation process without any of these softwares.
+   The build script can install a local version for you quickly. 
+   
 Installation
 ------------
+
+To start using PredictionIO, please follow the steps below. 
+
 Cloning
 ~~~~~~~
 
@@ -28,171 +40,78 @@ The following steps assume that you have cloned the repo at your home directory.
 
     git clone git://github.com/PredictionIO/PredictionIO.git
 
-Downloading Apache Mahout
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you plan to deploy Apache Mahout algorithms, you need to obtain a binary distribution from its official web site.
-Currently, only 0.7 has been tested.
-Once you have downloaded and unpacked the content, copy `mahout-core-0.7-job.jar` to the `lib`.
-
-    cp mahout-core-0.7-job.jar ~/PredictionIO/lib
 
 
-Compiling PredictionIO
-~~~~~~~~~~~~~~~~~~~~~~
+Compiling and Deploying PredictionIO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Automatic Build
-***************
-
-PredictionIO ships with it a build script that helps you download and install build prerequisites automatically.
+PredictionIO ships with build scripts that help you download and install build prerequisites automatically.
 
     cd ~/PredictionIO
 
     bin/build.sh
+    
+    bin/package.sh
+    
+    cd ~/PredictionIO/dist/target/PredictionIO-{current version}
+    
+    bin/setup-vendors.sh
 
-Manual Build
-************
+    
+*   Hadoop
+    
+    If you do not have Hadoop installed, setup-vendors script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
 
-**Common Dependencies**
+        $ ssh localhost
 
-Compile dependencies first using sbt.
+    If you cannot ssh to localhost without a passphrase, execute the following commands:
 
-    cd ~/PredictionIO/commons
+        $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
 
-    sbt clean update +publish
+        $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys 
 
-    cd ~/PredictionIO/output
 
-    sbt clean update +publish
-
-If you run into any memory space problem, you may want to try adding `-Xmx512m` to your `sbt` commands, e.g.
-
-    sbt clean update +publish -Xmx512m
-
-**Process Assembly**
-
-Compile and build the process assembly using sbt,
-where `>` indicates commands that will be run in the sbt console.
-
-    cd ~/PredictionIO/process/hadoop/scala
-
-    sbt clean update assembly
-
-**MAP@k Top-K Items Collector**
-
-Compile and build the collector using sbt.
-
-    cd ~/PredictionIO/process/hadoop/scala/engines/itemrec/evaluations/topkitems
-
-    sbt clean update assembly
-
-**Command-line User Administration Tool**
+Start PredictionIO
+~~~~~~~~~~~~~~~~~~~
 
 .. note::
-   It is not necessary to have MongoDB running to compile the command line user administration tool.
 
-Compile and pack the command line user administration tool.
-The default configuration assumes that you are running MongoDB at localhost:27017.
-If this is not the case, update the configuration in
-`~/PredictionIO/tools/users/src/main/resources/application.conf` before compiling.
+    Please make sure that MongoDB is running before you run this start script.
 
-    io.prediction.commons.settings.db.type=mongodb
+To start all PredictionIO services:
+    
+    cd ~/PredictionIO/dist/target/PredictionIO-{current version}
+    
+    bin/start-all.sh
 
-    io.prediction.commons.settings.db.host=your.host.com
 
-    io.prediction.commons.settings.db.port=12345
+Now, you should be able to access PredictionIO at http://localhost:9000/!
 
-After that, compile the tool.
-
-    cd ~/PredictionIO/tools/users
-
-    sbt clean update pack
-
-Adding a User
-~~~~~~~~~~~~~
+Create an Administrator Account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
-    MongoDB must be running for this step and beyond.
+    Please make sure that MongoDB is running before you run this tool.
 
-You must add at least one user to be able to log in.
-Run
+You must add at least one administrator to be able to log in the web panel:
 
     ~/PredictionIO/tools/users/target/pack/bin/users
 
-and follow the on-screen instructions to create a user.
 
-Starting the Admin Panel
-~~~~~~~~~~~~~~~~~~~~~~~~
+Stop PredictionIO
+~~~~~~~~~~~~~~~~~
 
-Similar to the CLI tool, you may want to change your configuration, which is located at
-`~/PredictionIO/adminServer/conf/application.conf`
+To stop all PredictionIO services:
 
-The commons settings database, specified by `io.prediction.commons.settings.db.*` keys,
-should be the same as the one specified in the CLI tool.
+    cd ~/PredictionIO/dist/target/PredictionIO-{current version}
+    
+    bin/stop-all.sh
 
-Assuming you have installed the Play framework at /opt/play,
-where `>` indicates commands that will be run in the Play console.
+If you are running the local Hadoop that comes with PredictionIO, you can stop Hadoop with:
 
-    cd ~/PredictionIO/adminServer
-
-    /opt/play/play
-
-    > clean
-
-    > update
-
-    > compile
-
-    > run
-
-To access the admin panel, point your browser to http://localhost:9000/.
-After the first run, you may skip `update` and `compile`.
-
-Starting the API Server
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Again, change the configuration in `~/PredictionIO/output/api/conf/application.conf`
-where you see fit. With the same assumption from the step before,
-
-    cd ~/PredictionIO/output/api
-
-    /opt/play/play
-
-    > clean
-
-    > update
-
-    > compile
-
-    > run 8000
-
-This will start the API server on the default port 8000.
-
-Starting the Scheduler
-~~~~~~~~~~~~~~~~~~~~~~
-
-Change the configuration in `~PredictionIO/scheduler/conf/application.conf`
-where you see fit.
-
-In this configuration, however, you may want to change all database host names to one
-that can be resolved by all nodes in your Hadoop farm.
-
-With the same assumption from the step before,
-
-    cd ~/PredictionIO/scheduler
-
-    /opt/play/play
-
-    > clean
-
-    > update
-
-    > compile
-
-    > run 7000
-
-This will start the scheduler on the default port 7000.
-
+    vendors/hadoop-{current version}/bin/stop-all.sh
+    
+    
 
 Upgrading
 ---------
@@ -209,3 +128,28 @@ This breaks backward compatibility with 0.1 and requires a tool to migrate this 
 
 Follow the on-screen instructions to complete the migration.
 After the upgrade, the suite should return to normal operation.
+
+
+Advanced Notes
+--------------
+
+MongoDB at a non-local hosts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The default configuration assumes that you are running MongoDB at localhost:27017.
+If this is not the case, update the configuration in
+`~/PredictionIO/tools/users/src/main/resources/application.conf` before compiling.
+
+    io.prediction.commons.settings.db.type=mongodb
+
+    io.prediction.commons.settings.db.host=your.host.com
+
+    io.prediction.commons.settings.db.port=12345
+
+    
+(TODO)
+
+Compile Components Manually
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are a PredictionIO contributor/developer, you may want to :doc:`compile each component manually <install-predictionio-manual-compile>`.

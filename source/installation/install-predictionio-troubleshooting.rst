@@ -89,6 +89,8 @@ Remove everything related to PredictionIO in your MongoDB.
     
     > use predictionio_training_appdata;
 
+    > db.dropDatabase();
+    
 Format Hadoop Namenode and Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

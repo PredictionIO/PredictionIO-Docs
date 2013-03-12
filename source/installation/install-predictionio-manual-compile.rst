@@ -13,7 +13,7 @@ Currently, only 0.7 has been tested.
 Once you have downloaded and unpacked the content, copy `mahout-core-0.7-job.jar` to the `lib`.
 
     cp mahout-core-0.7-job.jar ~/PredictionIO/lib
-    
+
 Compile Components
 ~~~~~~~~~~~~~~~~~~
 
@@ -50,20 +50,20 @@ Compile and build the collector using sbt.
 
     sbt clean update assembly
 
- **Compile User Tool**
+**Compile User Tool**
 
 Compile and pack the command line user administration tool.
 
     cd ~/PredictionIO/tools/users
 
     sbt clean update pack
-     
+
 
 Starting the Admin Panel
 ------------------------
 
 Similar to the CLI tool, you may want to change your configuration, which is located at
-`~/PredictionIO/adminServer/conf/application.conf`
+`~/PredictionIO/servers/admin/conf/application.conf`
 
 The commons settings database, specified by `io.prediction.commons.settings.db.*` keys,
 should be the same as the one specified in the CLI tool.
@@ -71,7 +71,7 @@ should be the same as the one specified in the CLI tool.
 Assuming you have installed the Play framework at /opt/play,
 where `>` indicates commands that will be run in the Play console.
 
-    cd ~/PredictionIO/adminServer
+    cd ~/PredictionIO/servers/admin
 
     /opt/play/play
 
@@ -89,10 +89,10 @@ After the first run, you may skip `update` and `compile`.
 Starting the API Server
 ------------------------
 
-Again, change the configuration in `~/PredictionIO/output/api/conf/application.conf`
+Again, change the configuration in `~/PredictionIO/servers/api/conf/application.conf`
 where you see fit. With the same assumption from the step before,
 
-    cd ~/PredictionIO/output/api
+    cd ~/PredictionIO/servers/api
 
     /opt/play/play
 
@@ -109,7 +109,7 @@ This will start the API server on the default port 8000.
 Starting the Scheduler
 ----------------------
 
-Change the configuration in `~PredictionIO/scheduler/conf/application.conf`
+Change the configuration in `~PredictionIO/servers/scheduler/conf/application.conf`
 where you see fit.
 
 In this configuration, however, you may want to change all database host names to one
@@ -117,7 +117,7 @@ that can be resolved by all nodes in your Hadoop farm.
 
 With the same assumption from the step before,
 
-    cd ~/PredictionIO/scheduler
+    cd ~/PredictionIO/servers/scheduler
 
     /opt/play/play
 

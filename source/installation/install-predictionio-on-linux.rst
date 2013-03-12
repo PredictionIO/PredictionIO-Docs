@@ -6,13 +6,13 @@ Prerequisites
 -------------
 
 
-The current default PredictionIO setup assumes that you have the following environment:
+The default PredictionIO setup assumes that you have the following environment:
 
 * At least 512MB of free memory for building the source
 * A recent version of Linux (other OS's have not been tested yet)
 * JDK 7.0+ (may work with JDK 6 but untested at the moment)
 
-To run PredictionIO, the following software are required:
+To run PredictionIO, the following software are also required:
 
 * Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command)
 * MongoDB 2.0+ (http://www.mongodb.org/)
@@ -22,14 +22,12 @@ To run PredictionIO, the following software are required:
 
 .. note::
 
-   You may still continue the installation process without any of these softwares.
+   You may still continue the installation process without any of the above softwares.
    The build script can install a local version for you quickly.
 
-To clone the software repository, and to enable automatic installation of 3rd party software,
-the following commands are required in your search path:
+In addition, the following commands are required in your search path:
 
 * curl
-* git
 * gzip
 * tar
 * unzip
@@ -80,7 +78,10 @@ PredictionIO ships with build scripts that help you download and install build p
 
         $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
 
-    To prevent any compatibility issue, when asked for a Java installation, please provide one that was used to build PredictionIO.
+*   Java
+
+    If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of the java version you are currently using by default.
+    Otherwise, your Hadoop's Java setup may be incompatible with the one of your PredictionIO installation.
 
 
 Start PredictionIO
@@ -124,6 +125,10 @@ If you are running the local Hadoop that comes with PredictionIO, you can stop H
     vendors/hadoop-{current version}/bin/stop-all.sh
 
 
+Troubleshooting
+---------------
+
+If you cannot run PredictionIO properly, please refer to our :doc:`Installation Troubleshooting Guide <install-predictionio-troubleshooting>`.
 
 Upgrading
 ---------

@@ -2,7 +2,7 @@
 Quick Start
 ===========
 
-.. index:: 
+.. index::
    single: quickstart
 
 Overview
@@ -16,14 +16,14 @@ Overview
 1. Install PredictionIO
 2. Create a new *application* on PredictionIO to obtain an *app key*
 3. Create an *engine* of the prediction service you need
-4. Integrate your data into PredictionIO for this app 
+4. Integrate your data into PredictionIO for this app
 5. Make Prediction
 
 .. note::
 
    - You can create multiple prediction engines for an app to serve different prediction purposes.
    - You can integrate all kind of data into this app. Data will be shared among all engines.
-   - For each engine, an algorithm is selected by default. You may manually select another one. 
+   - For each engine, an algorithm is selected by default. You may manually select another one.
 
 1. Install PredictionIO
 -----------------------
@@ -32,7 +32,7 @@ Please follow the steps at :doc:`installation`.
 
 2. Obtain an App Key
 --------------------
-Go to http://yourhost:8000/. Follow the instruction.
+Go to http://yourhost:9000/. Follow the instruction.
 
 Now an app key can be obtained from the control panel. You need this key for all PredictionIO API/SDK calls.
 

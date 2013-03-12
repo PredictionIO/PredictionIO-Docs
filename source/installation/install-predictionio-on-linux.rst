@@ -12,7 +12,7 @@ The current default PredictionIO setup assumes that you have the following envir
 * A recent version of Linux (other OS's have not been tested yet)
 * JDK 7.0+ (may work with JDK 6 but untested at the moment)
 
-To run PredictionIO, the following softwares are required: 
+To run PredictionIO, the following softwares are required:
 
 * Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command)
 * MongoDB 2.0+ (http://www.mongodb.org/)
@@ -23,12 +23,12 @@ To run PredictionIO, the following softwares are required:
 .. note::
 
    You may still continue the installation process without any of these softwares.
-   The build script can install a local version for you quickly. 
-   
+   The build script can install a local version for you quickly.
+
 Installation
 ------------
 
-To start using PredictionIO, please follow the steps below. 
+To start using PredictionIO, please follow the steps below.
 
 Cloning
 ~~~~~~~
@@ -50,17 +50,17 @@ PredictionIO ships with build scripts that help you download and install build p
     cd ~/PredictionIO
 
     bin/build.sh
-    
+
     bin/package.sh
-    
+
     cd ~/PredictionIO/dist/target/PredictionIO-{current version}
-    
+
     bin/setup-vendors.sh
 
-    
+
 *   Hadoop
-    
-    If you do not have Hadoop installed, setup-vendors script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
+
+    If you do not have Hadoop installed, setup-vendors.sh script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
 
         $ ssh localhost
 
@@ -68,7 +68,9 @@ PredictionIO ships with build scripts that help you download and install build p
 
         $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
 
-        $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys 
+        $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+
+    To prevent any compatibility issue, when asked for a Java installation, please provide one that was used to build PredictionIO.
 
 
 Start PredictionIO
@@ -79,9 +81,9 @@ Start PredictionIO
     Please make sure that MongoDB is running before you run this start script.
 
 To start all PredictionIO services:
-    
+
     cd ~/PredictionIO/dist/target/PredictionIO-{current version}
-    
+
     bin/start-all.sh
 
 
@@ -104,14 +106,14 @@ Stop PredictionIO
 To stop all PredictionIO services:
 
     cd ~/PredictionIO/dist/target/PredictionIO-{current version}
-    
+
     bin/stop-all.sh
 
 If you are running the local Hadoop that comes with PredictionIO, you can stop Hadoop with:
 
     vendors/hadoop-{current version}/bin/stop-all.sh
-    
-    
+
+
 
 Upgrading
 ---------
@@ -146,7 +148,7 @@ If this is not the case, update the configuration in
 
     io.prediction.commons.settings.db.port=12345
 
-    
+
 (TODO)
 
 Compile Components Manually

@@ -12,7 +12,7 @@ The current default PredictionIO setup assumes that you have the following envir
 * A recent version of Linux (other OS's have not been tested yet)
 * JDK 7.0+ (may work with JDK 6 but untested at the moment)
 
-To run PredictionIO, the following softwares are required:
+To run PredictionIO, the following software are required:
 
 * Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command)
 * MongoDB 2.0+ (http://www.mongodb.org/)
@@ -24,6 +24,16 @@ To run PredictionIO, the following softwares are required:
 
    You may still continue the installation process without any of these softwares.
    The build script can install a local version for you quickly.
+
+To clone the software repository, and to enable automatic installation of 3rd party software,
+the following commands are required in your search path:
+
+* curl
+* git
+* gzip
+* tar
+* unzip
+* zip
 
 Installation
 ------------

@@ -157,16 +157,13 @@ MongoDB at a non-local hosts
 
 The default configuration assumes that you are running MongoDB at localhost:27017.
 If this is not the case, update the configuration in
-`~/PredictionIO/tools/users/src/main/resources/application.conf` before compiling.
+`~/PredictionIO/dist/target/PredictionIO-{current version}/conf/predictionio.conf`.
 
     io.prediction.commons.settings.db.type=mongodb
 
     io.prediction.commons.settings.db.host=your.host.com
 
     io.prediction.commons.settings.db.port=12345
-
-
-(TODO)
 
 Compile Components Manually
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

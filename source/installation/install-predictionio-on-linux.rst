@@ -108,7 +108,9 @@ Create an Administrator Account
 
 You must add at least one administrator to be able to log in the web panel:
 
-    ~/PredictionIO/tools/users/target/pack/bin/users
+    cd ~/PredictionIO/dist/target/PredictionIO-{current version}
+
+    bin/users
 
 
 Stop PredictionIO

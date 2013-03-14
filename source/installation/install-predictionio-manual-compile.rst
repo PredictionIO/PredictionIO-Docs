@@ -29,24 +29,33 @@ Compile dependencies first using sbt.
 
     sbt clean update +publish
 
+    cd ~/PredictionIO/process/commons/hadoop/scalding
+
+    sbt clean update +publish
+
 If you run into any memory space problem, you may want to try adding `-Xmx512m` to your `sbt` commands, e.g.
 
     sbt clean update +publish -Xmx512m
 
-**Process Assembly**
+**Process Assembly for ItemRec Engine**
 
-Compile and build the process assembly using sbt,
-where `>` indicates commands that will be run in the sbt console.
+Compile and build the process assembly using sbt.
 
-    cd ~/PredictionIO/process/hadoop/scala
+    cd ~/PredictionIO/process/engines/itemrec/algorithms/hadoop/scalding
 
     sbt clean update assembly
 
-**MAP@k Top-K Items Collector**
+    cd ~/PredictionIO/process/engines/itemrec/evaluations/hadoop/scalding
 
-Compile and build the collector using sbt.
+    sbt clean update assembly
 
-    cd ~/PredictionIO/process/hadoop/scala/engines/itemrec/evaluations/topkitems
+    cd ~/PredictionIO/process/engines/itemrec/evaluations/scala/topkitems
+
+    sbt clean update assembly
+
+**Process Assembly for ItemSim Engine**
+
+    cd ~/PredictionIO/process/engines/itemsim/evaluations/hadoop/scalding
 
     sbt clean update assembly
 

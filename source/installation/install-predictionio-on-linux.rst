@@ -40,14 +40,10 @@ Downloading and Deploying PredictionIO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PredictionIO ships with setup scripts that help you download and install prerequisites automatically.
-Start by downloading a `binary release <http://prediction.io/download>`_ of PredictionIO, then
 
-    unzip PredictionIO-{current version}.zip
+Start by downloading a `binary release <http://prediction.io/download>`_ of PredictionIO.
 
-    cd PredictionIO-{current version}
-
-    bin/setup-vendors.sh
-
+Please be aware that:
 
 *   Hadoop
 
@@ -61,10 +57,19 @@ Start by downloading a `binary release <http://prediction.io/download>`_ of Pred
 
         $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
 
-*   Java
+*   Java 7
 
     If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of a Java 7 installation in your system.
     PredictionIO contains Hadoop job JARs that are compiled against Java 7, and your Hadoop must also be running Java 7 to guarantee compatibility.
+
+Now you can run these commands:
+
+    unzip PredictionIO-{current version}.zip
+
+    cd PredictionIO-{current version}
+
+    bin/setup-vendors.sh
+
 
 
 Start PredictionIO
@@ -72,7 +77,7 @@ Start PredictionIO
 
 .. note::
 
-    Please make sure that MongoDB is running before you run this start script.
+    Please make sure that **MongoDB** is running before you run this start script.
 
 To start all PredictionIO services:
 
@@ -85,7 +90,7 @@ Create an Administrator Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
-    Please make sure that MongoDB is running before you run this tool.
+    Please make sure that **MongoDB** is running before you run this tool.
 
 You must add at least one administrator to be able to log in the web panel:
 

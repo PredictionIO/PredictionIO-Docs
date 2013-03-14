@@ -36,8 +36,8 @@ Installation
 To start using PredictionIO, please follow the steps below.
 
 
-Downloading and Deploying PredictionIO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Downloading and Setting Up PredictionIO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PredictionIO ships with setup scripts that help you download and install prerequisites automatically.
 

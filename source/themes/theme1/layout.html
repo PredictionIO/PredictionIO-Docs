@@ -41,6 +41,12 @@
 {%- endmacro %}
 
 {%- macro script() %}
+	<script type="text/javascript">
+	   <!-- temp fix for Sphnix char conversion bug -->
+		$(function(){
+		    $(document.body).html($(document.body).html().replace(/&#x2018;|&#x2019;|‘|’/g, "'").replace(/&#x201c;|&#x201d;|“|”/g, "\""));
+		});
+	</script>
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT: '{{ url_root }}',

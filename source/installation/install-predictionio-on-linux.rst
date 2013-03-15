@@ -5,7 +5,6 @@ Installing PredictionIO on Linux
 Prerequisites
 -------------
 
-
 The default PredictionIO setup assumes that you have the following environment:
 
 * A recent version of Linux (other OS's have not been tested yet)
@@ -50,6 +49,8 @@ Please be aware that:
     If you do not have Hadoop installed, setup-vendors.sh script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
 
         $ ssh localhost
+
+    If you see "connection refused", it means that the SSH service has not been enabled in the machine yet. Please enable it before you continue. 
 
     If you cannot ssh to localhost without a passphrase, execute the following commands:
 

@@ -5,7 +5,6 @@ Installing PredictionIO on Linux
 Prerequisites
 -------------
 
-
 The default PredictionIO setup assumes that you have the following environment:
 
 * A recent version of Linux (other OS's have not been tested yet)
@@ -36,11 +35,35 @@ Installation
 To start using PredictionIO, please follow the steps below.
 
 
-Downloading and Deploying PredictionIO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Downloading and Setting Up PredictionIO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PredictionIO ships with setup scripts that help you download and install prerequisites automatically.
-Start by downloading a `binary release <http://prediction.io/download>`_ of PredictionIO, then
+
+Start by downloading a `binary release <http://prediction.io/download>`_ of PredictionIO.
+
+Please be aware that:
+
+*   Hadoop
+
+    If you do not have Hadoop installed, setup-vendors.sh script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
+
+        $ ssh localhost
+
+    If you see "connection refused", it means that the SSH service has not been enabled in the machine yet. Please enable it before you continue. 
+
+    If you cannot ssh to localhost without a passphrase, execute the following commands:
+
+        $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+
+        $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+
+*   Java 7
+
+    If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of a Java 7 installation in your system.
+    PredictionIO contains Hadoop job JARs that are compiled against Java 7, and your Hadoop must also be running Java 7 to guarantee compatibility.
+
+Now you can run these commands:
 
     unzip PredictionIO-{current version}.zip
 
@@ -49,30 +72,13 @@ Start by downloading a `binary release <http://prediction.io/download>`_ of Pred
     bin/setup-vendors.sh
 
 
-*   Hadoop
-
-    If you do not have Hadoop installed, setup-vendors.sh script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
-
-        $ ssh localhost
-
-    If you cannot ssh to localhost without a passphrase, execute the following commands:
-
-        $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
-
-        $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
-
-*   Java
-
-    If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of a Java 7 installation in your system.
-    PredictionIO contains Hadoop job JARs that are compiled against Java 7, and your Hadoop must also be running Java 7 to guarantee compatibility.
-
 
 Start PredictionIO
 ~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
-    Please make sure that MongoDB is running before you run this start script.
+    Please make sure that **MongoDB** is running before you run this start script.
 
 To start all PredictionIO services:
 
@@ -85,7 +91,7 @@ Create an Administrator Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
-    Please make sure that MongoDB is running before you run this tool.
+    Please make sure that **MongoDB** is running before you run this tool.
 
 You must add at least one administrator to be able to log in the web panel:
 

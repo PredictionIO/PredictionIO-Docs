@@ -33,7 +33,6 @@ And execute it to generate user, item and random view actions.
 
     python import.py
 
-
 Check Engine Status
 -------------------
 
@@ -41,6 +40,18 @@ On the dashboard of your web admin panel, you can check the number of users, ite
 
 In the Item Recommendation Engine that you have created, namely **engine1**, please take a look at the engine status.
 You cannot retrieve prediction result until engine status becomes **Running**.
+
+**Speed up the training:**
+
+PredictionIO server updates data model periodically. You can trigger the training immediately:
+
+1.  On web admin panel, go Manage for **engine1**.
+
+2.  Click the **Algorithms** tab.
+
+3.  In the **Deployed Algorithm** area, click the **Running** small button next to the algorithm description.
+
+4.  Click **Train Data Model Now**
 
 You may check if the training jobs are running properly through the PredictionIO server log files:
 

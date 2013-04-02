@@ -11,11 +11,11 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   quickstart
    installation
+   quickstart
    concepts
    engines-and-algorithms
-   api
+   /* api */
 
 .. end-toc
 

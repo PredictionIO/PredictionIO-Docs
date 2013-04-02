@@ -5,69 +5,46 @@ Quick Start
 .. index::
    single: quickstart
 
-Overview
---------
 
 | PredictionIO is an open-source prediction server: Data In, Prediction Out.
-| You can setup PredictionIO easily within a few minutes.
-
-5 Simple Steps to Use PredictionIO:
-
-1. Install PredictionIO
-2. Create a new *application* on PredictionIO to obtain an *app key*
-3. Create an *engine* of the prediction service you need
-4. Integrate your data into PredictionIO for this app
-5. Make Prediction
-
-.. note::
-
-   - You can create multiple prediction engines for an app to serve different prediction purposes.
-   - You can integrate all kind of data into this app. Data will be shared among all engines.
-   - For each engine, an algorithm is selected by default. You may manually select another one.
+| You can try out PredictionIO easily with a few steps:
 
 1. Install PredictionIO
 -----------------------
 
 Please follow the steps at :doc:`installation`.
+Then go to web admin panel at http://<yourhost>:9000/.
 
 2. Obtain an App Key
 --------------------
-Go to http://yourhost:9000/. Follow the instruction.
-
-Now an app key can be obtained from the control panel. You need this key for all PredictionIO API/SDK calls.
+Follow on-screen instruction to add the first app. 
+Now an **app key** can be obtained from the control panel. You need this key for all PredictionIO API/SDK calls.
 
 3. Create a Prediction Engine
 -----------------------------
 
-After you have created your app on PredictionIO, it is time to create a Prediction Engine for the prediction service you need. You can create more than one prediction engine.
-For first-time users, you may simply create one to start with.
-
-A prediction engine can be created on the control panel or through API call.
+Next, you need to create a **Prediction Engine** under the new app. Each engine deals with one specific prediction problem. 
+Let's start by creating an **Item Recommendation Engine** (itemrec) and name it **engine1**.
 
 
-4. Integrate Data into PredictionIO
-------------------------------------
+4. Write your First App
+-----------------------
 
-Before you can use the prediction engine you have just created, you need to integrate data into PredictionIO for your app.
-You can import all kind of data. It will be accessible among all prediction engines.
+Your first engine is ready to use! Try to write the first piece of code to interact with it using your preferred language: 
 
-There are two way:
+.. toctree::
+   :maxdepth: 1
 
-Batch Import
-~~~~~~~~~~~~
+   First PredictionIO App in PHP <quickstart/quickstart-php>
+   First PredictionIO App in Python <quickstart/quickstart-python>
+   
+Things to Know
+--------------
+ 
+.. note::
 
-This approach is especially useful to import your existing data into PredictionIO.
-*Instruction coming soon *
-
-Real-time Import
-~~~~~~~~~~~~~~~~
-
-To ensure you have the latest data in PredictionIO, you should also submit the data from your app to PredictionIO in real-time.
-We have efficient SDKs in different languages which support both asynchronized and synchronized calls.
-
-Please refer to :ref:`api_data`.
-
-5. Make Prediction
--------------------
-
-To make a prediction through the engine you have created, please refer to the specific API of your engine's :ref:`api_prediction`.
+   - You can create multiple prediction engines for an app to serve different prediction purposes.
+   - You can import all kind of data into this app. Data will be shared among all engines.
+   - For each engine, an algorithm is selected by default. You may manually select another one.
+ 
+Pay attention to the engine status on the web admin panel. You can retrieve prediction only if its status is *running*.

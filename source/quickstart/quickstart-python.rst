@@ -2,7 +2,7 @@
 First Python PredictionIO App
 =============================
 
-It's a quickstart guide of using PredictionIO Python SDK to write a very simple app.  It assumes that you have installed PredictionIO server.
+This is a quickstart guide of using PredictionIO Python SDK to write a very simple app.  It assumes that you have installed PredictionIO server.
 
 Let's create a new project directory:
 
@@ -10,11 +10,30 @@ Let's create a new project directory:
 
     mkdir pydemo
     cd pydemo
-        
+
 Install Python SDK
 ------------------
 
-(coming soon)
+To install the module from PyPI, you may
+
+.. code-block:: console
+
+    pip install predictionio
+
+or
+
+.. code-block:: console
+
+    easy_install predictionio
+
+If you have cloned the repository and want to install directly from there,
+do the following in the root directory of the repository:
+
+.. code-block:: console
+
+    python setup.py install
+
+This will install the ``predictionio`` module to your Python distribution.
 
 Generate and Import Data
 ------------------------
@@ -25,9 +44,36 @@ Replace **<your app key>** with your app key string.
 
 .. code-block:: python
 
-    (coming soon)
+    import predictionio
+    import random
 
-And execute it to generate user, item and random view actions.
+    client = predictionio.Client(appkey="<your app key>")
+
+    # generate 10 users, with user ids 1,2,....,10
+    for i in range(10):
+        i = i + 1
+        print "Add user", i
+        client.create_user(uid=i)
+
+    # generate 50 items, with item ids 1,2,....,50
+    # assign type id 1 to all of them
+    for i in range(50):
+        i = i + 1
+        print "Add item", i
+        client.create_item(iid=i, itypes=(1,))
+
+    # each user randomly views 10 items
+    random.seed()
+    for u in range(10):
+        u = u + 1
+        for count in range(10):
+            i = random.randint(1, 50)
+            print "User", u, "views item", i
+            client.user_view_item(uid=u, iid=i)
+
+    client.close()
+
+And execute it to generate users, items and random view actions.
 
 .. code-block:: console
 
@@ -60,14 +106,14 @@ You may check if the training jobs are running properly through the PredictionIO
 .. code-block:: console
 
     cd ~/PredictionIO-{current version}
-    
+
     tail -f logs/scheduler.err -f logs/scheduler.log
 
-If you see the some hadoop jobs are running, then your setup is probably okay. Ctrl+C to exit log viewing.
+If you see the some Hadoop jobs are running, then your setup is probably okay. Press Ctrl+C to exit log viewing.
 
 .. note::
 
-    Please be patience. It may take a long time to train the data model the first time even for very small dataset.
+    Please be patient. It may take a long time to train the data model the first time even for very small dataset.
     It is normal because PredictionIO implements an distributed algorithm by default, which is not optimized for small dataset.
     You can change that later.
 
@@ -81,13 +127,25 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
 
 .. code-block:: python
 
-    (coming soon)
-    
+    import predictionio
+
+    client = predictionio.Client(appkey="<your app key>")
+
+    # Recommend 5 items to each user
+    for u in range(5):
+        u = u + 1
+        print "Retrieve top 5 recommendations for user", u
+        try:
+            rec = client.get_itemrec(engine="<engine name>", uid=u, n=5)
+            print rec
+        except predictionio.ItemRecNotFoundError as e:
+            print 'Caught exception:', e.strerror()
+
 Execute it AFTER your engine status becomes **Running** or you may not see any recommendation.
 
 .. code-block:: console
 
     python show.py
-    
-    
+
+
 Congratulations! You have just create a "hello world" of PredictionIO in Python.

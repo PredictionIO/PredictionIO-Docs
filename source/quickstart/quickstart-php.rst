@@ -2,23 +2,23 @@
 First PHP PredictionIO App
 ==========================
 
-It's a quickstart guide of using PredictionIO PHP SDK to write a very simple app. It assumes that you have installed PredictionIO server.
+This is a quickstart guide of using PredictionIO PHP SDK to write a very simple app. It assumes that you have installed PredictionIO server.
 
-Let's create a new project directory:
+Let us create a new project directory:
 
 .. code-block:: console
 
     mkdir phpdemo
     cd phpdemo
-        
+
 Install PHP SDK
 ----------------
 
 To communicate with PredictionIO server in PHP code, we can use the PredictionIO PHP client.
-We are going to install it with Composer: 
+We are going to install it with Composer:
 
 1.  Create a file called **``composer.json``** in your project directory, which adds `predictionio/predictionio` as a dependency.
-    It should look like this: 
+    It should look like this:
 
 .. code-block:: javascript
 
@@ -52,19 +52,19 @@ Replace **<your app key>** with your app key string.
 
 .. code-block:: php
 
-    <?php 
+    <?php
         // use composer's autoloader to load PredictionIO PHP SDK
-        require_once("vendor/autoload.php");  
+        require_once("vendor/autoload.php");
         use PredictionIO\PredictionIOClient;
         $client = PredictionIOClient::factory(array("appkey" => "<your app key>"));
-        
+
         // generate 10 users, with user ids 1,2,....,10
         for ($i=1; $i<=10; $i++) {
             echo "Add user ". $i . "\n";
             $command = $client->getCommand('create_user', array('uid' => $i));
             $response = $client->execute($command);
         }
-    
+
         // generate 50 items, with item ids 1,2,....,50
         // assign type id 1 to all of them
         for ($i=1; $i<=50; $i++) {
@@ -72,10 +72,10 @@ Replace **<your app key>** with your app key string.
             $command = $client->getCommand('create_item', array('iid' => $i, 'itypes' => 1));
             $response = $client->execute($command);
         }
-    
+
         // each user randomly views 10 items
         for ($u=1; $u<=10; $u++) {
-            for ($count=0; $count<3; $count++) {
+            for ($count=0; $count<10; $count++) {
                 $i = rand(1, 50); // randomly pick an item
                 echo "User ". $u . " views item ". $i ."\n";
                 $client->execute($client->getCommand('user_view_item', array('uid' => $u, 'iid' => $i)));
@@ -83,7 +83,7 @@ Replace **<your app key>** with your app key string.
         }
     ?>
 
-And execute it to generate user, item and random view actions.
+And execute it to generate users, items and random view actions.
 
 .. code-block:: console
 
@@ -117,14 +117,14 @@ You may check if the training jobs are running properly through the PredictionIO
 .. code-block:: console
 
     cd ~/PredictionIO-{current version}
-    
+
     tail -f logs/scheduler.err -f logs/scheduler.log
 
-If you see the some hadoop jobs are running, then your setup is probably okay. Ctrl+C to exit log viewing.
+If you see the some Hadoop jobs are running, then your setup is probably okay. Press Ctrl+C to exit log viewing.
 
 .. note::
 
-    Please be patience. It may take a long time to train the data model the first time even for very small dataset.
+    Please be patient. It may take a long time to train the data model the first time even for very small dataset.
     It is normal because PredictionIO implements an distributed algorithm by default, which is not optimized for small dataset.
     You can change that later.
 
@@ -138,9 +138,9 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
 
 .. code-block:: php
 
-    <?php 
+    <?php
         // use composer's autoloader to load PredictionIO PHP SDK
-        require_once("vendor/autoload.php");  
+        require_once("vendor/autoload.php");
         use PredictionIO\PredictionIOClient;
         $client = PredictionIOClient::factory(array("appkey" => "<your app key>"));
 
@@ -155,12 +155,12 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
             }
         }
     ?>
-    
+
 Execute it AFTER your engine status becomes **Running** or you may not see any recommendation.
 
 .. code-block:: console
 
     php show.php
-    
-    
+
+
 Congratulations! You have just create a "hello world" of PredictionIO in PHP.

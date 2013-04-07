@@ -14,4 +14,6 @@ Step-by-Step How To
 .. toctree::
    :maxdepth: 1
 
+   tutorials/movie-recommendation
    tutorials/restaurant-recommendation
+   

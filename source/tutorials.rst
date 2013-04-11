@@ -15,5 +15,6 @@ Step-by-Step How To
    :maxdepth: 1
 
    tutorials/movie-recommendation
+   tutorials/android-client
    tutorials/restaurant-recommendation
    

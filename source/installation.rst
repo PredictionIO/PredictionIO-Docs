@@ -34,16 +34,6 @@ Download an SDK
 We provide various SDK libraries to connect your web or mobile app with PredictionIO.
 Please check out the following SDK documentations for more details.
 
-- Ruby
-
-  - `Ruby SDK Documentation <http://rubydoc.info/github/PredictionIO/PredictionIO-Ruby-SDK/master/frames>`_
-  - `Download Ruby SDK Source Code <https://github.com/PredictionIO/PredictionIO-Ruby-SDK>`_
-
-- Python
-
-  - (Doc is coming soon)
-  - `Download Python SDK Source Code <https://github.com/PredictionIO/PredictionIO-Python-SDK>`_
-
 - Java
 
   - `Java SDK Documentation </java/api>`_
@@ -51,5 +41,15 @@ Please check out the following SDK documentations for more details.
 
 - PHP
 
-  - (coming soon)
+  - `PHP SDK Documentation </php/api>`_
+  - `Download PHP SDK Source Code <https://github.com/PredictionIO/PredictionIO-PHP-SDK>`_
 
+- Python
+
+  - `Python SDK Documentation <http://pythonhosted.org/PredictionIO/>`_
+  - `Download Python SDK Source Code <https://github.com/PredictionIO/PredictionIO-Python-SDK>`_
+
+- Ruby
+
+  - `Ruby SDK Documentation <http://rubydoc.info/github/PredictionIO/PredictionIO-Ruby-SDK/master/frames>`_
+  - `Download Ruby SDK Source Code <https://github.com/PredictionIO/PredictionIO-Ruby-SDK>`_

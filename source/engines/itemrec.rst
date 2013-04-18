@@ -7,35 +7,54 @@ This engine predicts top N user preferences to items.
 Algorithms
 ----------
 
-Scala-based kNN Item-based Collaborative Filtering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scalding kNN Item-based Collaborative Filtering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This item-based k-NearestNeighbor algorithm predicts user preferences based on previous behaviors of users on similar items.
+Predict user preferences based on previous behaviors of users on similar items.
 
-Mahout kNN Item-based Collaborative Filtering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mahout's Threshold Item-based Collaborative Filtering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predicts user preferences based on previous behaviors of users on similar items.
+Predict user preferences based on previous behaviors of users on similar items.
 
-Mahout Alternating Least Squares with Weighted Lambda-Regulatization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mahout's kNN Item-based Collaborative Filtering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predicts user preferences based on previous behaviors of users.
+Predict user preferences based on previous behaviors of users on similar items.
+
+Mahout's Alternating Least Squares with Weighted Lambda-Regulatization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behaviors of users.
 
 Mahout's kNN User Based Collaborative Filtering (Non-distributed)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predicts user preferences based on previous behaviors of users who are the k-nearest neighbors (Non-distributed).
+Predict user preferences based on previous behaviors of users who are the k-nearest neighbors (Non-distributed).
 
 Mahout's Threshold User Based Collaborative Filtering (Non-distributed)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predicts user preferences based on previous behaviors of users whose similarity meets or exceeds a certain threshold (Non-distributed).
+Predict user preferences based on previous behaviors of users whose similarity meets or exceeds a certain threshold (Non-distributed).
 
 Mahout's SlopeOne Rating Based Collaborative Filtering (Non-distributed)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predicts user preferences based on average difference in preference values between new items and the items for which the user has indicated preferences (Non-distributed).
+Predict user preferences based on average difference in preference values between new items and the items for which the user has indicated preferences (Non-distributed).
+
+Mahout's Alternating Least Squares with Weighted Lambda-Regulatization (Non-distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences using matrix factorization (Non-distributed).
+
+Mahout's SVD-RatingSGD Recommender (Non-distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences using matrix factorization (Non-distributed).
+
+Mahout's SVDPlusPlus Recommender (Non-distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Predict user preferences using matrix factorization (Non-distributed).
 
 Random Rank
 ~~~~~~~~~~~

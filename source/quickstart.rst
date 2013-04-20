@@ -13,7 +13,7 @@ Quick Start
 -----------------------
 
 Please follow the steps at :doc:`installation`.
-Then go to web admin panel at http://<yourhost>:9000/.
+Then go to web admin panel at `http://<yourhost>:9000/`.
 
 2. Obtain an App Key
 --------------------

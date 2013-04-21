@@ -19,7 +19,7 @@ In addition, the following software are required:
 
    You may continue the installation process without Hadoop and MongoDB.
    The setup script will install them for you quickly.
-   
+
 * curl
 * gzip
 * tar
@@ -44,15 +44,35 @@ Please be aware that:
 
     If you do not have Hadoop installed, setup-vendors.sh script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
 
+    .. code-block:: console
+
         $ ssh localhost
 
-    If you see "connection refused", it means that the SSH service has not been enabled in the machine yet. Please enable it before you continue. 
+    If you see "connection refused", it means that the SSH service has not been enabled in the machine yet. Please enable it before you continue.
 
     If you cannot ssh to localhost without a passphrase, execute the following commands:
 
-        $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+    .. code-block:: console
 
+        $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
         $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+
+    By default, Hadoop uses `/tmp` as NameNode and DataNode storage. In some
+    cases, this will be insufficient and cause DataNode to go offline during
+    Hadoop job execution. To specify a different location for NameNode and
+    DataNode storage, edit ``vendors/hadoop-<version>/conf/hdfs-site.xml`` and
+    add:
+
+    .. code-block:: xml
+
+        <property>
+            <name>dfs.name.dir</name>
+            <value>/path_to_big_storage</value>
+        </property>
+        <property>
+            <name>dfs.data.dir</name>
+            <value>/path_to_big_storage</value>
+        </property>
 
 *   Java 7
 
@@ -61,11 +81,11 @@ Please be aware that:
 
 Now you can run these commands:
 
-    unzip PredictionIO-{current version}.zip
+.. code-block:: console
 
-    cd PredictionIO-{current version}
-
-    bin/setup-vendors.sh
+    $ unzip PredictionIO-{current version}.zip
+    $ cd PredictionIO-{current version}
+    $ bin/setup-vendors.sh
 
 
 
@@ -78,7 +98,9 @@ Start PredictionIO
 
 To start all PredictionIO services:
 
-    bin/start-all.sh
+.. code-block:: console
+
+    $ bin/start-all.sh
 
 
 Now, you should be able to access PredictionIO at http://localhost:9000/!
@@ -91,7 +113,9 @@ Create an Administrator Account
 
 You must add at least one administrator to be able to log in the web panel:
 
-    bin/users
+.. code-block:: console
+
+    $ bin/users
 
 
 Stop PredictionIO
@@ -99,11 +123,15 @@ Stop PredictionIO
 
 To stop all PredictionIO services:
 
-    bin/stop-all.sh
+.. code-block:: console
+
+    $ bin/stop-all.sh
 
 If you are running the local Hadoop that comes with PredictionIO, you can stop Hadoop with:
 
-    vendors/hadoop-{current version}/bin/stop-all.sh
+.. code-block:: console
+
+    $ vendors/hadoop-{current version}/bin/stop-all.sh
 
 
 Troubleshooting

@@ -67,12 +67,14 @@ Please be aware that:
 
         <property>
             <name>dfs.name.dir</name>
-            <value>/path_to_big_storage</value>
+            <value>/path_to_big_storage_for_namenode</value>
         </property>
         <property>
             <name>dfs.data.dir</name>
-            <value>/path_to_big_storage</value>
+            <value>/path_to_big_storage_for_datanode</value>
         </property>
+
+    Make sure NameNode and DataNode directories are different to avoid any locking error.
 
 *   Java 7
 

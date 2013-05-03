@@ -2,10 +2,48 @@
 Item Recommendation Engine
 ==========================
 
-This engine predicts top N user preferences to items.
+*Predicts top N items for a user.*
 
-Algorithms
-----------
+For the Item Recommendation Engine, the query is a targeted user while the output is a list of N items selected for this user. The goal is to predict items this user likes most.
+
+During the prediction step, for a targeted user, we want to predict a preference score for each available item. Higher score means that the user likes the item more. 
+This is where the predictive models of machine learning come into place:
+
+.. image:: /images/itemrec-prediction-step.png
+
+During the ranking step, the system ranks all available items for this user according to the predicted score. Other criteria, such as the preference to the diversity of the item set, can be applied to adjust the ranking. The top N ranked items will be returned as the prediction output.
+
+
+The Requirement of Training Data 
+--------------------------------
+
+In order to build a predictive model to predict a user's preference score towards an item, we need training data like this:
+
+User ID | Item ID | Previous Behavior
+
+For example:
+
+User u1 has viewed 
+
+You should also provide the *time* and *location* that a behavior took place, if they are available.
+
+    .. note::
+    
+    | **Other User and Item Data Attributes**
+    | 
+    | Your user data may have various attributes, such as age and gender. Your item data may also have some attributes as well, such as price and title. What kind of data attribute you need to provide to PredictionIO depends on the algorithm you choose to build the model.
+    | 
+    | Currently, all built-in algorithms in PreditionIO are Collaborative Filtering (CF) algorithms. CF algorithms derive the feature vectors of users and items from previous behaviors, i.e. score, only. Therefore, you simply need to identify each user and item with a unique ID. No extra data attribute is needed.
+    | 
+    | It does not mean that CF algorithms are less accurate though. In fact, researches (such as `this <http://dl.acm.org/citation.cfm?id=1639731>`_) show the exact opposite. Algorithms that require no data attribute can be the winning algorithms.
+
+
+
+Built-in Algorithms
+-------------------
+
+A standard PredictionIO installation, which includes the Apache Mahout library, comes with the following algorithms:
+
 
 Scalding kNN Item-based Collaborative Filtering
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

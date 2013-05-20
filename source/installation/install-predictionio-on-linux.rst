@@ -12,7 +12,7 @@ The default PredictionIO setup assumes that you have the following environment:
 
 In addition, the following software are required:
 
-* Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command)
+* Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command; see :ref:`hadoop2`)
 * MongoDB 2.0+ (http://www.mongodb.org/)
 
 .. note::
@@ -25,6 +25,27 @@ In addition, the following software are required:
 * tar
 * unzip
 * zip
+
+
+Upgrading to 0.4
+----------------
+
+If you are upgrading from previous versions of PredictionIO to 0.4, follow
+the following steps.
+
+#. Download PredictionIO 0.4 and extract it to a location different from the
+   previous version.
+#. If you have any custom configuration with the previous version, migrate
+   them to the new version. It is not adviced to simply copy the old
+   configuration file over as new configuration files usually come with new
+   configuration keys.
+#. Make sure any previous versions of PredictionIO is not running.
+#. Run ``bin/setup.sh`` to populate PredictionIO internal data.
+#. Run ``bin/setup-vendors.sh`` to download dependent third-party software.
+   Migrate any custom third-party configuration from the previous installation.
+#. Run ``bin/settings04`` and follow on-screen instructions to migrate any
+   previous settings of apps, engines, algorithms, etc.
+#. Start PredictionIO 0.4 with ``bin/start-all.sh``.
 
 
 Installation
@@ -87,6 +108,7 @@ Now you can run these commands:
 
     $ unzip PredictionIO-{current version}.zip
     $ cd PredictionIO-{current version}
+    $ bin/setup.sh
     $ bin/setup-vendors.sh
 
 
@@ -145,8 +167,25 @@ If you cannot run PredictionIO properly, please refer to our :doc:`Installation 
 Advanced Notes
 --------------
 
-MongoDB at a non-local hosts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _hadoop2:
+
+Hadoop 0.22+ / 2+
+~~~~~~~~~~~~~~~~~
+
+If you are using one of these next generation Hadoop versions, distributed
+Mahout jobs may not work as expected as the job JAR from the Apache Mahout
+project is built against Hadoop 0.20+ / 1+. You may either compile a custom
+Apache Mahout job JAR against your Hadoop distribution, or use the one that
+comes with your distribution. For the latter case, it is perfectly fine to use
+Apache Mahout 0.7 job JAR that comes with your distribution.
+
+To change the location of the Apache Mahout job JAR to a non-default one,
+modify the following in ``conf/predictionio.conf``.
+
+    io.prediction.algorithms.mahout-core-job.jar=your_custom_mahout_job_jar
+
+MongoDB at a Non-local Host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default configuration assumes that you are running MongoDB at localhost:27017.
 If this is not the case, update the configuration in ``conf/predictionio.conf``.
@@ -156,6 +195,16 @@ If this is not the case, update the configuration in ``conf/predictionio.conf``.
     io.prediction.commons.settings.db.host=your.host.com
 
     io.prediction.commons.settings.db.port=12345
+
+Specify the Temporary Space
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The default temporary space is system-specific. Under Linux, it is usually
+``/tmp``. Algorithms packaged with PredictionIO generate temporary files and can
+sometimes be too large for the default temporary space. To use a different
+temporary space, update the configuration in ``conf/predictionio.conf``.
+
+    io.prediction.commons.settings.local.temp.root=/a_big_temp_space
 
 Compile Components Manually
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

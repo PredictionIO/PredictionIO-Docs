@@ -14,7 +14,7 @@ Table of Contents
    installation
    quickstart
    concepts
-   engines-and-algorithms
+   engines/itemrec
    /* api */
 
 .. end-toc

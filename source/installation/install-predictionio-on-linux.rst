@@ -40,9 +40,9 @@ the following steps.
    configuration file over as new configuration files usually come with new
    configuration keys.
 #. Make sure any previous versions of PredictionIO is not running.
-#. Run ``bin/setup.sh`` to populate PredictionIO internal data.
 #. Run ``bin/setup-vendors.sh`` to download dependent third-party software.
    Migrate any custom third-party configuration from the previous installation.
+#. Run ``bin/setup.sh`` to populate PredictionIO internal data.
 #. Run ``bin/settings04`` and follow on-screen instructions to migrate any
    previous settings of apps, engines, algorithms, etc.
 #. Start PredictionIO 0.4 with ``bin/start-all.sh``.
@@ -108,8 +108,8 @@ Now you can run these commands:
 
     $ unzip PredictionIO-{current version}.zip
     $ cd PredictionIO-{current version}
-    $ bin/setup.sh
     $ bin/setup-vendors.sh
+    $ bin/setup.sh
 
 
 

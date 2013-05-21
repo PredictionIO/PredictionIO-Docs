@@ -8,12 +8,12 @@ Prerequisites
 The default PredictionIO setup assumes that you have the following environment:
 
 * A recent version of Linux (other OS's have not been tested yet)
-* Java 7.0+
+* Java 6+
 
 In addition, the following software are required:
 
 * Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command; see :ref:`hadoop2`)
-* MongoDB 2.0+ (http://www.mongodb.org/)
+* MongoDB 2.2+ (http://www.mongodb.org/)
 
 .. note::
 

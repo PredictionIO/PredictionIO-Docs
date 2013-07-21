@@ -7,7 +7,7 @@ Prerequisites
 
 The default PredictionIO setup assumes that you have the following environment:
 
-* A recent version of Linux (other OS's have not been tested yet)
+* A recent version of Linux (64-bit is recommended)
 * Java 6+
 
 In addition, the following software are required:
@@ -27,11 +27,31 @@ In addition, the following software are required:
 * zip
 
 
+Upgrading to 0.5.0
+------------------
+
+If you are upgrading from 0.4.x to 0.5.0, please follow these steps:
+
+#. Download PredictionIO 0.5.0 and extract it to a location different from the
+   previous version.
+#. If you have any custom configuration with the previous version, migrate
+   them to the new version. It is not adviced to simply copy the old
+   configuration file over as new configuration files usually come with new
+   configuration keys.
+#. Make sure any previous versions of PredictionIO is not running.
+#. Run ``bin/setup-vendors.sh`` to download dependent third-party software.
+   Migrate any custom third-party configuration from the previous installation.
+#. Run ``bin/setup.sh`` to populate PredictionIO internal data.
+#. Run ``bin/migration/appdata`` and follow on-screen instructions to migrate
+   any previous apps' data to the new format.
+#. Start PredictionIO 0.5.0 with ``bin/start-all.sh``.
+
+
 Upgrading to 0.4
 ----------------
 
-If you are upgrading from previous versions of PredictionIO to 0.4, follow
-the following steps.
+If you are upgrading from previous versions of PredictionIO to 0.4, please
+follow these steps:
 
 #. Download PredictionIO 0.4 and extract it to a location different from the
    previous version.
@@ -97,10 +117,9 @@ Please be aware that:
 
     Make sure NameNode and DataNode directories are different to avoid any locking error.
 
-*   Java 7
+*   Java 6+
 
-    If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of a Java 7 installation in your system.
-    PredictionIO contains Hadoop job JARs that are compiled against Java 7, and your Hadoop must also be running Java 7 to guarantee compatibility.
+    If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of a Java 6+ installation in your system.
 
 Now you can run these commands:
 
@@ -109,8 +128,20 @@ Now you can run these commands:
     $ unzip PredictionIO-{current version}.zip
     $ cd PredictionIO-{current version}
     $ bin/setup-vendors.sh
-    $ bin/setup.sh
 
+If you rely on ``bin/setup-vendors.sh`` to download and install MongoDB, you
+will need to manually start MongoDB before running ``bin/setup.sh``. This
+glitch will be fixed in a future release.
+
+.. code-block:: console
+
+    $ vendors/mongodb-linux-x86_64-2.4.3/bin/mongod --config conf/mongodb/mongodb.conf >/dev/null 2>&1 &
+
+Now you may proceed with:
+
+.. code-block:: console
+
+    $ bin/setup.sh
 
 
 Start PredictionIO

@@ -53,14 +53,14 @@ Replace **<your app key>** with your app key string.
     for i in range(10):
         i = i + 1
         print "Add user", i
-        client.create_user(uid=i)
+        client.create_user(i)
 
     # generate 50 items, with item ids 1,2,....,50
     # assign type id 1 to all of them
     for i in range(50):
         i = i + 1
         print "Add item", i
-        client.create_item(iid=i, itypes=(1,))
+        client.create_item(i, (1,))
 
     # each user randomly views 10 items
     random.seed()
@@ -69,7 +69,8 @@ Replace **<your app key>** with your app key string.
         for count in range(10):
             i = random.randint(1, 50)
             print "User", u, "views item", i
-            client.user_view_item(uid=u, iid=i)
+            client.identify(u)
+            client.record_action_on_item("view", i)
 
     client.close()
 
@@ -136,7 +137,8 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
         u = u + 1
         print "Retrieve top 5 recommendations for user", u
         try:
-            rec = client.get_itemrec(engine="<engine name>", uid=u, n=5)
+            client.identify(u)
+            rec = client.get_itemrec_topn(5, "<engine name>")
             print rec
         except predictionio.ItemRecNotFoundError as e:
             print 'Caught exception:', e.strerror()

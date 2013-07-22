@@ -23,9 +23,6 @@ You can get the code of this example by doing:
 .. code-block:: console
 
     $ git clone https://github.com/PredictionIO/PredictionIO-Python-SDK.git
-    $ git checkout v0.3-example
-
-.. note:: please check out the v0.3-example tag
 
 Go to *PredictionIO-Python-SDK/examples/itemrec/movies/*, you will find 4 files:
 
@@ -78,7 +75,7 @@ Take a quick look at the file **batch_import.py**. Basically it is doing the fol
 
 .. code-block:: python
 
-   client = predictionio.Client(appkey=APP_KEY, threads=1, apiurl=API_URL)
+   client = predictionio.Client(APP_KEY, 1, API_URL)
 
 * Import each user to PredictionIO. Each user has an unique uid attribute:
 
@@ -99,7 +96,12 @@ Take a quick look at the file **batch_import.py**. Basically it is doing the fol
 .. code-block:: python
 
     for v in app_data.get_rate_actions():
-        client.user_rate_item(v.uid, v.iid, v.rating, t=v.t)
+        client.identify(v.uid)
+        client.record_action_on_item("rate", v.iid, { "pio_rate": v.rating, "pio_t": v.t })
+
+.. note:: 
+    
+    The attribute "pio_rate" is the rating value which is required for "rate" actions. The attribute "pio_t" is the optional timestamp.
 
 In terminal, run the **batch_import.py** Python script:
 
@@ -155,7 +157,8 @@ The engine name should match the name of the engine you created in step 4. This 
 .. code-block:: python
 
     try:
-        rec = self._client.get_itemrec(uid=u.uid, n=n, engine=ENGINE_NAME)
+        self._client.identify(u.uid)
+        rec = self._client.get_itemrec_topn(n, ENGINE_NAME)
         u.rec = rec['iids']
         self.display_items(u.rec)
     except predictionio.ItemRecNotFoundError:

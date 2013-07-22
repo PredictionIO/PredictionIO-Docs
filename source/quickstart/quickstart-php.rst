@@ -61,7 +61,7 @@ Replace **<your app key>** with your app key string.
         // generate 10 users, with user ids 1,2,....,10
         for ($i=1; $i<=10; $i++) {
             echo "Add user ". $i . "\n";
-            $command = $client->getCommand('create_user', array('uid' => $i));
+            $command = $client->getCommand('create_user', array('pio_uid' => $i));
             $response = $client->execute($command);
         }
 
@@ -69,7 +69,7 @@ Replace **<your app key>** with your app key string.
         // assign type id 1 to all of them
         for ($i=1; $i<=50; $i++) {
             echo "Add item ". $i . "\n";
-            $command = $client->getCommand('create_item', array('iid' => $i, 'itypes' => 1));
+            $command = $client->getCommand('create_item', array('pio_iid' => $i, 'pio_itypes' => 1));
             $response = $client->execute($command);
         }
 
@@ -78,7 +78,8 @@ Replace **<your app key>** with your app key string.
             for ($count=0; $count<10; $count++) {
                 $i = rand(1, 50); // randomly pick an item
                 echo "User ". $u . " views item ". $i ."\n";
-                $client->execute($client->getCommand('user_view_item', array('uid' => $u, 'iid' => $i)));
+                $client->identify($u);
+                $client->execute($client->getCommand('record_action_on_item', array('pio_action' => 'view', 'pio_iid' => $i)));
             }
         }
     ?>
@@ -148,7 +149,8 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
         for ($u=1; $u<=10; $u++) {
             echo "Retrieve top 5 recommendations for user ". $u . "\n";
             try {
-                $rec = $client->execute($client->getCommand('itemrec_get_top_n', array('engine' => '<engine name>', 'uid' => $u, 'n' => 5)));
+                $client->identify($u);
+                $rec = $client->execute($client->getCommand('itemrec_get_top_n', array('pio_engine' => '<engine name>', 'pio_n' => 5)));
                 print_r($rec);
             } catch (Exception $e) {
                echo 'Caught exception: ',  $e->getMessage(), "\n";

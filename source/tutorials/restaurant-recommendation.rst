@@ -25,7 +25,7 @@ In our case, restaurants are the items.
 
 Give your new engine a name, e.g. 'restaurant-rec', and click **Create**.
 
-Now you have a working recommendation engine. You can start using it right away! 
+Now you have a working recommendation engine. You can start using it right away!
 If you can spare another minute with us, see how you can fine-tune this engine in 'Adjust Prediction Settings' (Step 4). Otherwise, skip to 'Start Using the Engine' (Step 5).
 
 Step 4: Adjust Prediction Settings  (Optional)
@@ -37,7 +37,7 @@ After your first engine is created, you will arrive at the Prediction Settings p
 
     Here, you can define which types of items, i.e. Item Types, this engine should handle.
 
-    With our example, we may assign a single item type 'restaurant' to all restaurants. But other item types such as 'cafe', 'bar', 'fast-food', 'casual' and 'fine-dining' may be assigned to individual restaurants.  
+    With our example, we may assign a single item type 'restaurant' to all restaurants. But other item types such as 'cafe', 'bar', 'fast-food', 'casual' and 'fine-dining' may be assigned to individual restaurants.
 
     If you want to this engine to only handle 'fast-food' and 'casual' types of restaurants, you should add 'fast-food' and 'casual' in the Item Types Settings area.
 
@@ -56,6 +56,8 @@ Step 5: Start Using the Engine
 
 Ruby SDK is used in examples below.
 
+.. code-block:: ruby
+
     client = PredictionIO::Client.new(<appkey>)
 
 1. Import your Data
@@ -64,33 +66,43 @@ Ruby SDK is used in examples below.
 
     Add User
 
+    .. code-block:: ruby
+
         client.acreate_user(<username>)
 
     Add Item (restaurant)
-    
+
+    .. code-block:: ruby
+
         client.acreate_item(<itemname>, <array_of_item_types>)
-    
+
     Add Behavior
 
-        client.auser_rate_item(<username>, <itemname>, <rating_from_1_to_5>)
-    
+    .. code-block:: ruby
+
+        client.identify(<username>)
+        client.arecord_action_on_item('rate', <itemname>, 'pio_rate' => <rating_from_1_to_5>)
+
     .. note::
-    
-      * Item Recommendation Engine uses previous user behavior data to predict users' future preferences. 
-    
+
+      * Item Recommendation Engine uses previous user behavior data to predict users' future preferences.
+
       * The data you import into 'My Restaurant App' will be shared among all engines you create.
 
 
 2. Retrieve Prediction
 
-    Item Recommendation Engine is trained/re-trained with new data every hour. 
-    
+    Item Recommendation Engine is trained/re-trained with new data every hour.
+
     To predict top N restaurants that a user may like:
-    
-        client.get_itemrec_top_n(<enginename>, <username>, <N>)
-    
+
+    .. code-block:: ruby
+
+        client.identify(<username>)
+        client.get_itemrec_top_n(<enginename>, <N>)
+
     Item Recommendation Engine also supports location-based and item validity scenario.
-    
+
 
 Extra Step: Select and Tune Algorithms
 --------------------------------------

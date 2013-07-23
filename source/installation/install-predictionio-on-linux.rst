@@ -131,13 +131,17 @@ Now you can run these commands:
 
 If you rely on ``bin/setup-vendors.sh`` to download and install MongoDB, you
 will need to manually start MongoDB before running ``bin/setup.sh``. This
-glitch will be fixed in a future release.
+glitch will be fixed in a future release. Please allow a few minutes for
+MongoDB to pre-allocate data files for the first time. This progress can be
+tracked by viewing its log files in ``vendors/mongodb/logs``.
 
 .. code-block:: console
 
+    $ mkdir -p vendors/mongodb/data
+    $ mkdir -p vendors/mongodb/logs
     $ vendors/mongodb-linux-x86_64-2.4.3/bin/mongod --config conf/mongodb/mongodb.conf >/dev/null 2>&1 &
 
-Now you may proceed with:
+Once MongoDB is ready and accepting connections, you may proceed with:
 
 .. code-block:: console
 

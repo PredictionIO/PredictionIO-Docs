@@ -15,7 +15,7 @@ Quick Start
 Please follow the steps at :doc:`installation`.
 Then go to web admin panel at ``http://<yourhost>:9000/``.
 
-2. Obtain an App Key
+2. Create an App Key
 --------------------
 Follow on-screen instruction to add the first app.
 Now an **app key** can be obtained from the control panel. You need this key for all PredictionIO API/SDK calls.

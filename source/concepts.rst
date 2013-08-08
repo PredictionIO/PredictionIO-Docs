@@ -57,6 +57,9 @@ PredictionIO can handle a huge amount of data efficiently. A variety of machine 
 Data
 ----
 
+Data Collection
+~~~~~~~~~~~~~~~
+
 User Data
 ~~~~~~~~~
 
@@ -67,12 +70,27 @@ Item Data
 
 Similar to User Data, the minimum requirement for an item record is a unique item ID.  Structured and unstructured item attributes are supported.
 
+
 Behavioral Data
 ~~~~~~~~~~~~~~~
 Behavioral data represents user-to-item and user-to-user interaction.
 PredictionIO comes with a number of built-in behaviors, such as like, dislike, rating, view, view details and buy.
 You may add your own behavior type if they are not enough.
 
+
+Item Type (or category)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Built-in Item Type
+
+Custom Item Type
+
+(placeholder)
+
+GEO Information
+~~~~~~~~~~~~~~~~
+
+(placeholder)
 
 Algorithm Evaluation
 ---------------------

@@ -6,12 +6,26 @@ Welcome to PredictionIO
 #######################
 
 PredictionIO is an open source Machine Learning Server. It empowers programmers and data engineers to build smart applications.
+
+Machine Learning is about attempting to teach computers to predict future, or otherwise unknown events, by applying computer science or statistics techniques to analyze existing data. It can be seen as a transformation from existing data to improve insights about the unknown.
+
 PredictionIO is useful for any **web** and **mobile** apps. For example, you can:
 
 * predict user behaviors
-* offer personalized video, news, deals, ads or even job openings
+* offer personalized video, news, deals, ads and job openings
 * help users to discover interesting events, documents, apps and restaurants
 * provide impressive match-making services
+
+PredictionIO is built on top of solid open source technology. We support Hadoop, Mahout, Cascading and Scalding natively.
+
+Some benefits of using PredictionIO:
+
+1. create predictive features quickly with **built-in algorithms**.
+2. **build your own** ML algorithms on top of a state-of-the-art infrastructure. 
+3. **find the best** algorithm for your application.
+4. handle big data well - PredictionIO is very **scalable**.
+5. serve **real-time** prediction queries through robust APIs and SDKs.
+
 
 Learn How to Use PredictionIO
 *****************************
@@ -28,22 +42,6 @@ This guide is under active development.
 .. include:: TOC.rst
    :start-after: begin-toc
    :end-before: end-toc
-
-Machine Learning Resources
-**************************
-Machine Learning is about attempting to teach computers to predict future, or otherwise unknown events, by applying computer science or statistics techniques to analyze existing data. It can be seen as a transformation from existing data to improve insights about the unknown.
-
-About PredictionIO
-******************
-PredictionIO is built on top of solid open source technology. We support Hadoop, Mahout, Cascading and Scalding natively.
-
-Some benefits of using PredictionIO:
-
-1. create predictive features quickly with **built-in algorithms**.
-2. **build your own** ML algorithms on top of a state-of-the-art infrastructure. 
-3. **find the best** algorithm for your application.
-4. big data ready - PredictionIO is very **scalable**.
-
 
 Community
 *********

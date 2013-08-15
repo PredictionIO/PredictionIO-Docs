@@ -59,7 +59,7 @@ Go to *PredictionIO-Python-SDK/examples/itemrec/movies/*. Open the file **app_co
 
 .. code-block:: python
 
-    APP_KEY = '2evHm5d4vqiY6bttb9Zlhd7vBYNL0P51zVyYJYS5WQeGaGz3CgOz9tLoZdIvjPqS'
+    APP_KEY = 'your app key here....'
 
 If you are not using the *ml-100k* data set, you need to modify **appdata.py** accordingly.
 

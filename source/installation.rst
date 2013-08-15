@@ -17,6 +17,7 @@ PredictionIO runs on JVM, so it runs on most platforms.
    :maxdepth: 1
 
    installation/install-predictionio-on-linux
+   installation/install-predictionio-on-aws
 
 ..
    installation/install-predictionio-on-aws-private-instance

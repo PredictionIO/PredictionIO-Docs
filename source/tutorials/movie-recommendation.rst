@@ -23,6 +23,11 @@ You can get the code of this example by doing:
 .. code-block:: console
 
     $ git clone https://github.com/PredictionIO/PredictionIO-Python-SDK.git
+    $ git checkout master
+
+.. note:: 
+
+    Please check out the master branch for the latest stable release.
 
 Go to *PredictionIO-Python-SDK/examples/itemrec/movies/*, you will find 4 files:
 

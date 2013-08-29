@@ -18,7 +18,9 @@
     border-right: 1px dashed #41B7D8;
     padding-right: 20px;
 }
-
+.docs-sidebar-menu a {
+    color: #1657AB!important;
+}
 div#btnv {
     padding-bottom: 2.5em;
     padding-top: 2em;

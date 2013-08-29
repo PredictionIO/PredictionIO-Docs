@@ -21,6 +21,9 @@
 .docs-sidebar-menu a {
     color: #1657AB!important;
 }
+.glossary dd {
+    margin-bottom: 15px;
+}
 div#btnv {
     padding-bottom: 2.5em;
     padding-top: 2em;

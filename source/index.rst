@@ -7,8 +7,6 @@ Welcome to PredictionIO
 
 PredictionIO is an open source Machine Learning Server. It empowers programmers and data engineers to build smart applications.
 
-Machine Learning is about attempting to teach computers to predict future, or otherwise unknown events, by applying computer science or statistics techniques to analyze existing data. It can be seen as a transformation from existing data to improve insights about the unknown.
-
 PredictionIO is useful for any **web** and **mobile** apps. For example, you can:
 
 * predict user behaviors
@@ -61,3 +59,19 @@ Stack Overflow is another great place to ask technical questions about Predictio
 **GITHUB AND JIRA**
 
 The code is on GitHub. The best way to send a patch is with a `GitHub <https://github.com/PredictionIO/>`_ pull request. `PredictionIO JIRA <http://predictionio.atlassian.net/>`_ is the best way to file a bug report.
+
+
+Additional Machine Learning Resources
+*************************************
+
+Machine Learning is about teaching computers to predict future, or otherwise unknown events, by applying computer science or statistics techniques to analyze existing data.
+
+The following resources provide additional information:
+
+.. glossary::
+
+    `Stanford Machine Learning Course <https://www.coursera.org/course/ml>`_
+        Stanford Machine Learning Course freely available on Coursera 
+    `Collaborative filtering: A Programmer's Guide to Data Mining <http://guidetodatamining.com/guide/ch2/DataMining-ch2.pdf>`_
+        A free book chapter that introduces Collaborative Filtering with sample codes.
+

@@ -1,23 +1,22 @@
-=======================
-Installing PredictionIO
-=======================
+====================
+Install PredictionIO
+====================
 
 .. index::
    single: installation
 
-Install PredictionIO server which comes with some REST API servers and machine learning componenets.
-In addition, you can download a SDK to connect your app to PredictionIO in the programming language you like.
+To get started, install PredictionIO Server and choose a SDK for your application.
 
 Install PredictionIO Server
 ---------------------------
 
-PredictionIO runs on JVM, so it runs on most platforms.
+PredictionIO runs on JVM, so it runs on most platforms. Choose your platform below:
 
 .. toctree::
    :maxdepth: 1
 
-   installation/install-predictionio-on-linux
    installation/install-predictionio-on-aws
+   installation/install-predictionio-on-linux
 
 ..
    installation/install-predictionio-on-aws-private-instance
@@ -29,28 +28,33 @@ PredictionIO runs on JVM, so it runs on most platforms.
    installation/install-predictionio-on-windows
 
 
-Download an SDK
----------------
+Install a SDK
+--------------
 
-We provide various SDK libraries to connect your web or mobile app with PredictionIO.
-Please check out the following SDK documentations for more details.
+We provide various SDKs to connect your software with PredictionIO Server:
 
 - Java
 
+  - `Install Java SDK <https://github.com/PredictionIO/PredictionIO-Java-SDK>`_
   - `Java SDK Documentation </java/api>`_
-  - `Download Java SDK Source Code <https://github.com/PredictionIO/PredictionIO-Java-SDK>`_
 
 - PHP
 
+  - `Install PHP SDK <https://github.com/PredictionIO/PredictionIO-PHP-SDK>`_
   - `PHP SDK Documentation </php/api>`_
-  - `Download PHP SDK Source Code <https://github.com/PredictionIO/PredictionIO-PHP-SDK>`_
 
 - Python
 
+  - `Install Python SDK <https://github.com/PredictionIO/PredictionIO-Python-SDK>`_
   - `Python SDK Documentation <http://pythonhosted.org/PredictionIO/>`_
-  - `Download Python SDK Source Code <https://github.com/PredictionIO/PredictionIO-Python-SDK>`_
 
 - Ruby
 
+  - `Install Ruby SDK <https://github.com/PredictionIO/PredictionIO-Ruby-SDK>`_
   - `Ruby SDK Documentation <http://rubydoc.info/github/PredictionIO/PredictionIO-Ruby-SDK/master/frames>`_
-  - `Download Ruby SDK Source Code <https://github.com/PredictionIO/PredictionIO-Ruby-SDK>`_
+
+
+First Steps with PredictionIO
+-----------------------------
+ 
+After you have installed PredictionIO, consider reading :doc:`quickstart` as the next step.

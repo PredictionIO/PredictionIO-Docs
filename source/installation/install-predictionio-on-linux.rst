@@ -1,6 +1,6 @@
-================================
-Installing PredictionIO on Linux
-================================
+=============================
+Install PredictionIO on Linux
+=============================
 
 Prerequisites
 -------------

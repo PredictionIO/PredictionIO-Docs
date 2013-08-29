@@ -1,6 +1,6 @@
-=============================================
-Deploying PredictionIO on Amazon Web Services
-=============================================
+==========================================
+Deploy PredictionIO on Amazon Web Services
+==========================================
 
 Deploying PredictionIO on Amazon Web Services is extremely easy thanks
 to AWS Marketplace. As long as you have access to AWS, you can launch a

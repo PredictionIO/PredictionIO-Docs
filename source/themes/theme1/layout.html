@@ -226,17 +226,18 @@
 		<div id="docsContainer" class="section">
 		  <div class="container">
 		    <div class="row-fluid">
-		      <div class="span9">
-                {% block body %} {% endblock %}
-                {{- render_nextprev() -}}
-
-		      </div>
               <div class="span3">
                 <div class=" docs-sidebar-menu">
                 {%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
                 {%- block sidebar2 %}{{ sidebar() }}{% endblock %}
                 </div>
               </div>
+		      <div class="span9">
+                {% block body %} {% endblock %}
+                {{- render_nextprev() -}}
+
+		      </div>
+
 		    </div>
 		  </div>
 		</div>

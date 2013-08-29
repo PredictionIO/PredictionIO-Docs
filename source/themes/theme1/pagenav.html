@@ -12,9 +12,8 @@
 
 <h2>
 <a href="{{ pathto('index') }}">{{ _('PredictionIO Guide') }}</a>
-<small>(<a href="{{ pathto(master_doc) }}">{{ _('TOC') }}</a>, <a href="{{ pathto('genindex') }}">{{ _('Index') }}</a>)</small>
 </h2>
-
+<small><a href="{{ pathto(master_doc) }}">{{ _('Table of Content') }}</a></small> | <small><a href="{{ pathto('genindex') }}">{{ _('Index') }}</a></small>
 {{ toctree(maxdepth=-1) }}
 
 

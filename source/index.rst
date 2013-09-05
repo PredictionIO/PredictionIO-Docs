@@ -30,9 +30,9 @@ Learn How to Use PredictionIO
 *****************************
 These few steps can get you familiar with PredictionIO quickily.
 
-1. Read the :doc:`quickstart`.
-2. :doc:`Install PredictionIO <installation>` and give it a try!
-3. Learn from some examples in :doc:`Tutorials <tutorials>`.
+1. Read the :doc:`tutorials/quickstart`.
+2. :doc:`Install PredictionIO <installation/index>` and give it a try!
+3. Learn from some examples in :doc:`Tutorials <tutorials/index>`.
 
 The PredictionIO Guide
 **********************

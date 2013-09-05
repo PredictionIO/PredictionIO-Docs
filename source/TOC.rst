@@ -11,9 +11,9 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   installation
-   quickstart
-   concepts
+   installation/index
+   tutorials/quickstart
+   concepts/index
    engines/itemrec
 
 .. end-toc

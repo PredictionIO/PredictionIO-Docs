@@ -27,7 +27,7 @@ User u1 has viewed
 
 You should also provide the *time* and *location* that a behavior took place, if they are available.
 
-    .. note::
+.. note::
     
     | **Other User and Item Data Attributes**
     | 

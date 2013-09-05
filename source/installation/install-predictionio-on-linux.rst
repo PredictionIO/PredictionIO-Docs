@@ -196,7 +196,12 @@ If you are running the local Hadoop that comes with PredictionIO, you can stop H
 Troubleshooting
 ---------------
 
-If you cannot run PredictionIO properly, please refer to our :doc:`Installation Troubleshooting Guide <install-predictionio-troubleshooting>`.
+If you cannot run PredictionIO properly, please refer to: 
+
+.. toctree::
+    :maxdepth: 1
+    
+    install-predictionio-troubleshooting
 
 
 Advanced Notes
@@ -244,4 +249,9 @@ temporary space, update the configuration in ``conf/predictionio.conf``.
 Compile Components Manually
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are a PredictionIO contributor/developer, you may want to :doc:`compile each component manually <install-predictionio-manual-compile>`.
+If you are a PredictionIO contributor/developer, you may refer to:
+
+.. toctree::
+    :maxdepth: 1
+    
+    install-predictionio-manual-compile

@@ -15,7 +15,6 @@ Table of Contents
    quickstart
    concepts
    engines/itemrec
-   /* api */
 
 .. end-toc
 

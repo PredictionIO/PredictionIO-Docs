@@ -72,6 +72,7 @@ The following resources provide additional information:
 
     `Stanford Machine Learning Course <https://www.coursera.org/course/ml>`_
         Stanford Machine Learning Course freely available on Coursera 
+        
     `Collaborative filtering: A Programmer's Guide to Data Mining <http://guidetodatamining.com/guide/ch2/DataMining-ch2.pdf>`_
         A free book chapter that introduces Collaborative Filtering with sample codes.
 

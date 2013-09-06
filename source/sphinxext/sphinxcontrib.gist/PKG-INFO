@@ -1,0 +1,44 @@
+Metadata-Version: 1.1
+Name: sphinxcontrib.gist
+Version: 0.1.0
+Summary: embedding gist to sphinx
+Home-page: https://github.com/shomah4a/sphinx-gist-embed
+Author: @shomah4a
+Author-email: UNKNOWN
+License: LGPLv3
+Description: 
+        embedding gist to sphinx
+        
+        usage:
+        
+        First of all, add `sphinx_gist_embed` to sphinx extension list in conf.py
+        
+        .. code-block:: python
+        
+           extensions = ['sphinxcontrib.gist']
+        
+        
+        then use `gist` directive.
+        
+        .. code-block:: rst
+        
+           .. gist:: https://gist.github.com/shomah4a/5149412
+        
+        
+        finally, build your sphinx project.
+        
+        .. code-block:: sh
+        
+           $ make html
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Topic :: Software Development :: Documentation

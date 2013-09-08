@@ -10,7 +10,7 @@ This section describes the underlying design of PredictionIO as well as some con
 .. toctree::
    :maxdepth: 1
 
-   basic
+   basics
    data
    modeling
    serving

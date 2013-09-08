@@ -78,24 +78,24 @@ body {
     font-weight: bold;
 }
 #docsContainer h1 {
-    border-top: 5px solid white;
     font-size: 160%;
     margin-top: 0;
+    margin-bottom: 15px;
+    text-transform:uppercase;
 }
 #docsContainer h2 {
     font-size: 135%;
     font-weight: bold;
 }
 #docsContainer h3 {
-    font-size: 110%;
-    border-bottom: 1px solid #CCCCCC;
-    margin-bottom: 15px;
-}
-#docsContainer h4 {
     font-size: 100%;
 }
-#docsContainer h5 {
+#docsContainer h4 {
     font-size: 90%;
+    font-weight: normal;
+}
+#docsContainer h5 {
+    font-size: 80%;
 }
 #docsContainer h6 {
     font-size: 80%;

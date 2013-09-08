@@ -2,54 +2,59 @@
 Data Collection
 ===============
 
-Data
-----
-
-Data Collection
-~~~~~~~~~~~~~~~
+To make prediction, PredictionIO app collects mainly 3 types of data: *User Data*, *Item Data* and *Behavioral Data*.
 
 User Data
-~~~~~~~~~
+---------
 
-Each user must be represented by a unique user ID.  Optionally, you can provide additional user attributes, such as age, gender, location and income. PredictionIO supports both structured and unstructured data attributes.
+Each user record corresponds to a unique user or customer of your application. 
+The only required data attribute is a user ID string, which normally matches with the one in your database.  
+You may also provide any extra data attributes, such as age, gender, location and income.
 
 Item Data
+---------
+
+An item record corresponds to an object of your application. An object can be anything, e.g., a book, a restaurant, a document, a product, a video or any other content.
+Each item record requires 2 data attributes: an Item ID string and an array of item types. You may also provide any extra data attributes to each item record. 
+Similar to an user ID, an item ID normally matches with the ID of the corresponding object in your database. An item type is a string that categorizes an item.
+
+Item Type
 ~~~~~~~~~
 
-Similar to User Data, the minimum requirement for an item record is a unique item ID.  Structured and unstructured item attributes are supported.
-
-Item Type (or category)
-+++++++++++++++++++++++
-(placeholder)
+There may be one or more type of items in your application. They can be categorized with item type strings. Each item can also belong to more than one item type.
+Let say you are building a software marketplace service that categorizes software as Freeware or Shareware. Each software is further categorized as Developer Tool, Database Server and System Utility etc.
+In this case, the item type array of an item record may look like this: ['Software', Freeware', 'Developer Tool'].
 
 
 Behavioral Data
-~~~~~~~~~~~~~~~
-Behavioral data represents user-to-item and user-to-user actions. 
-PredictionIO comes with a number of built-in actions, such as like, dislike, rating, view, view details and conversion.
-(You may also add your own action type if they are not enough.)
+---------------
 
-Built-in Action
-+++++++++++++++++++++++
+User-to-item actions and user-to-user actions are collected as behavioral data. They are used for constructing predictive models. 
+A behavior record looks like this: User *A* **likes** Item *X*, where **likes** is a user-to-item action type.
 
-The following list includes all built-in actions in PredictionIO:
+Built-in Action Type
+~~~~~~~~~~~~~~~~~~~~
+
+PredictionIO comes with some user-to-item action types:
 
 ``like``
-   Use this action when a user explicitly likes an item.
+   A user explicitly likes an item.
 
 ``dislike``
-   Use this action when a user explicitly dislikes an item.
+   A user explicitly dislikes an item.
 
 ``rate``
-   Use this action when a user gives rating to an item. It is a 1-5 scale score. 1 is the worst and 5 is the best. (so 3 is neutral) 
+   A user gives rating to an item. It is a 1-5 scale score. 1 is the worst and 5 is the best. (so 3 is neutral) 
    Please convert the score manually if your application follows a different rating scale. 
 
 ``view``
-    Use this action as a soft implicit preference.
+    A user browses an item. It may be regarded as a soft implicit preference.
     
 ``view details``
-    Use this action as a stronger implicit preference.
+    A user requests to read more about an item. It may be regarded as a stronger implicit preference.
 
 ``conversion``
-    Use this action when a user performs an action that implies the strongest preference, e.g. when a user purchases a product, when a user download the content or when a user signs up a service.
+    A user performs an action that implies the strongest preference, e.g. when a user purchases a product, when a user download the content or when a user signs up a service.
 
+
+You may also add your own custom action type.

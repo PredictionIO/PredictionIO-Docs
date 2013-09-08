@@ -2,30 +2,32 @@
 The Basic of PredictionIO
 =========================
 
-To add a predictive feature to your software with PredictionIO, first you need to add your app into PredictionIO Server. Then you choose and create 
-an engine according to your prediction needs. You may select an appropriate algorithm for this engine.  Finally, you can retrieve prediction results after a data model is built.
+PredictionIO acts as a server that collects data and serve prediction results through REST APIs/SDKs.
+Conceptually, the 3 main building blocks are: App, Engine and Algorithm.
 
-Application
-~~~~~~~~~~~
+.. image:: /images/concepts-app-engine-algo.png
 
-For each web or mobile app, you probably need to create one Application only. All data relating to app will be stored under this Application.
+
+
+App
+~~~
+
+App in PredictionIO Server is like a database or collection in a database server. 
+It is usually corresponds to the application you are building.
+Relevant data, such as user behavior, is collected by an app.  
+An app contains one or more prediction engines. App data is shared among these engines.
 
 Engine
 ~~~~~~
 
-In each Application, you can create multiple Engines. Each engine is responsible for one prediction need.
-For instance, you may create one engine to recommend news to users and you create another one to help users to discover new friends.
+An engine must belong to a prediction type (or engine type), such as Item Recommendation or Item Similarity.
+Each Engines process data and construct predictive model independently. Therefore, every engine serves its own set of prediction results.
+In an app, for example, you may create two engines: one for recommending news to users and another one for suggesting new friends to users.
+An algorithm must be deployed in each engine.
 
 Algorithm
 ~~~~~~~~~
 
-In each engine, at least one algorithm must be deployed. 
-
-
-
-
-
-Algorithm Evaluation
----------------------
-
-Each type of engine comes with scientific evaluation metrics for you to evaluate and compare algorithms.  
+A number of built-in algorithms are available for use in each type of engine.
+An algorithm, and the setting of its parameters, determines how predictive model is constructed. In another word, prediction accuracy or performance can be improved by tuning a suitable algorithm.
+PredictionIO comes with tools and metrics for algorithm evaluation.

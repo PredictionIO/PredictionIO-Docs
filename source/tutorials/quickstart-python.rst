@@ -153,7 +153,7 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
         u = u + 1
         print "Retrieve top 5 recommendations for user", u
         try:
-            client.identify(u)
+            client.identify(str(u))
             rec = client.get_itemrec_topn("<engine name>", 5)
             print rec
         except predictionio.ItemRecNotFoundError as e:

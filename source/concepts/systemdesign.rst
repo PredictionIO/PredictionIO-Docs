@@ -10,6 +10,8 @@ PredictionIO Server consists of a few components:
 * Scheduler
 * Data Store
 * Data Processing Stack
+
+.. image:: /images/concepts-systemdesign.png
  
 Admin Server
 ------------
@@ -32,7 +34,7 @@ Quartz is the default scheduler.
 Data Store
 ----------
 
-Data store manages the collected data and the cached prediction results. MongoDB is the default data store.
+Data store manages the collected data, the predictive model and the cached prediction results. MongoDB is the default data store.
 
 Data Processing Stack
 ---------------------

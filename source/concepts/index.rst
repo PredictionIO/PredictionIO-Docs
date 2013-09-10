@@ -14,7 +14,7 @@ This section describes the underlying design of PredictionIO as well as some con
    data
    modeling
    serving
-   accuracy
+   optimization
    
 Additional Topics:
 

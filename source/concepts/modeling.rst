@@ -2,10 +2,16 @@
 Predictive Modeling
 ===================
 
-Predictive modeling is a process by which a model is built to predict future or unknown outcome. 
+Predictive modeling is a process by which a model is built (or trained) to predict future or unknown outcome. 
 The accuracy and the performance of the model is determined by the algorithm you select as well as the parameter settings of this algorithm.
-In PredictionIO, each engine manages a model independently.
 
+Every engine manages a predictive model independently in PredictionIO. In another word, there is one deployed algorithm running in each engine.
+
+.. note::
+  
+    Depends on the implementation of the engine type, the system can train the model with the collected data in batch mode or in real-time.
+    
+     
 Algorithm
 ---------
 
@@ -20,11 +26,10 @@ Some algorithms require you to specify parameter values. (They are sometimes ref
 Parameters adjust how an algorithm learns. For instance, a regularization parameter tries to ensure that the model does not overfit its data. 
 Some algorithms provide an automatic tuning feature to help you find better parameter settings. This feature requires a lot of computational resources though.
 
-Evaluation 
-----------
 
-To choose between two algorithms and/or two sets of parameter settings, you need to evaluate how good they are objectively.
-One of the best approaches is to create two engines to do an A/B test on their performance based on your prediction goal.
-While this method is reliable, it requires you to conduct the experiment in production (or online) environment.
-An alternative approach is to conduct a simulated (or offline) test using existing data. You assign a portion of the existing data as unseen test data and evaluate the prediction accuracy using some scientific metrics.
-PredictionIO comes with offline evaluation tools for you to evaluate algorithms and parameter settings easily.   
+Choose an Algorithm
+-------------------
+
+Algorithms can rely on very different assumptions and theories. There is no one-size-fit-all solution that is suitable for every prediction problem.
+To improve prediction accuracy for your specific case, you may need to evaluate various combination of algorithms and parameter settings.
+To learn more about it, read :doc:`optimization`.

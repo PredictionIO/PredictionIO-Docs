@@ -30,7 +30,7 @@ Behavioral Data
 ---------------
 
 User-to-item actions and user-to-user actions are collected as behavioral data. They are used for constructing predictive models. 
-A behavior record looks like this: User *A* **likes** Item *X*, where **likes** is a user-to-item action type.
+A behavior record looks like this: User *A* **likes** Item *X*, where **like** is a user-to-item action type.
 
 Built-in Action Type
 ~~~~~~~~~~~~~~~~~~~~

@@ -85,7 +85,7 @@ Sample Response
 
 
 Delete a User Record
----------------------
+--------------------
 
 To delete a user record, make an HTTP DELETE request to this URI:
 

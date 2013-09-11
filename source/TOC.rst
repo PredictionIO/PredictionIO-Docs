@@ -14,14 +14,16 @@ Table of Contents
    installation/index
    tutorials/quickstart
    concepts/index
-   engines/itemrec
-
+   engines/itemrec/index
+   
 .. end-toc
 
+   
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 

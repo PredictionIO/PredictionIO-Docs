@@ -48,13 +48,12 @@ PredictionIO comes with some user-to-item action types:
    Please convert the score manually if your application follows a different rating scale. 
 
 ``view``
-    A user browses an item. It may be regarded as a soft implicit preference.
-    
-``view details``
-    A user requests to read more about an item. It may be regarded as a stronger implicit preference.
-
+    A user browses an item. It may be regarded as a soft implicit preference.    
 ``conversion``
     A user performs an action that implies the strongest preference, e.g. when a user purchases a product, when a user download the content or when a user signs up a service.
 
-
 You may also add your own custom action type.
+
+.. 
+    ``view details``
+    A user requests to read more about an item. It may be regarded as a stronger implicit preference.

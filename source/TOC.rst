@@ -15,6 +15,7 @@ Table of Contents
    tutorials/quickstart
    concepts/index
    engines/itemrec/index
+   engines/itemsim/index
    
 .. end-toc
 

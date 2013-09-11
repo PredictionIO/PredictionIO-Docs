@@ -9,7 +9,7 @@ With this engine, you can add discovery or recommendation features to your appli
 
 **Step 1: Predict User Preferences**  
 
-.. image:: /images/itemrec-prediction-step.png
+.. image:: /images/engine-itemrec-prediction.png
     
 In this batch-mode process, the engine predicts a preference score for every user-item pair. 
 The scores are computed by the deployed algorithm in the engine. (See: :doc:`algorithms`)

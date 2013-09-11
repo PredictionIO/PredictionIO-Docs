@@ -2,7 +2,7 @@
 Item Recommendation: Data Requirement
 =====================================
 
-To build a predictive model, the built-in algorithms of this engine requires the following data:
+To build a predictive model, all built-in algorithms of this engine require the following data:
 
 * User data
 * Item data

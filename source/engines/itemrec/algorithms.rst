@@ -57,9 +57,9 @@ Predict user preferences using matrix factorization (Non-distributed).
 Random Rank
 ~~~~~~~~~~~
 
-Predict user preferences randomly.
+Predict user preferences randomly. (see it as a baseline algorithm for evaluation purposes)
 
 Latest Rank
 ~~~~~~~~~~~
 
-Recommend latest items to users.
+Recommend latest items to users. (see this non-personal algorithm as a baseline for evaluation purposes)

@@ -32,4 +32,15 @@ In most cases, the higher the score, the better the algorithm is.
 .. note::
   
     Offline evaluation is a computationally expensive process. Depends on your data size and other factors, it can take a very long time.
-    
+
+
+The Baseline
+------------
+
+To evaluate the usefulness of an algorithm, a common way is to compare its performance with a *baseline*. 
+A baseline algorithm usually produces results through some naive or non-personal approaches.
+For instance, a baseline algorithm for recommendation may recommend items randomly to users, or it may simply return the newest or the most popular items.
+This kind of algorithm, as the name suggested, serves as a baseline to benchmark the performance of your selected algorithm and parameter settings.
+A learning algorithm is said to be useless if it cannot beat the performance of a baseline algorithm.
+
+Baseline algorithms, such as random and latest rank, are provided in some engines.

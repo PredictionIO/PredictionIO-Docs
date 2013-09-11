@@ -6,13 +6,13 @@ Welcome to PredictionIO
 #######################
 
 PredictionIO is an open source Machine Learning Server. It empowers programmers and data engineers to build smart applications.
-
-PredictionIO is useful for any **web** and **mobile** apps. For example, you can:
+With PredictionIO, you can add the following features to your apps instantly:
 
 * predict user behaviors
 * offer personalized video, news, deals, ads and job openings
 * help users to discover interesting events, documents, apps and restaurants
 * provide impressive match-making services
+* and more....
 
 PredictionIO is built on top of solid open source technology. We support Hadoop, Mahout, Cascading and Scalding natively.
 

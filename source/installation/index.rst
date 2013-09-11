@@ -29,6 +29,9 @@ PredictionIO runs on JVM, so it runs on most platforms. Choose your platform bel
    install-predictionio-on-os-x
    install-predictionio-on-windows
 
+.. note::
+   
+   To upgrade from a previous version properly, please run **bin/setup.sh** after you install the new binary. 
 
 Install a SDK
 --------------

@@ -30,8 +30,8 @@ PredictionIO runs on JVM, so it runs on most platforms. Choose your platform bel
    install-predictionio-on-windows
 
 .. note::
-   
-   To upgrade from a previous version properly, please run **bin/setup.sh** after you install the new binary. 
+
+   To upgrade from a previous version properly, please run **bin/setup.sh** after you install the new binary.
 
 Install a SDK
 --------------
@@ -56,10 +56,10 @@ We provide various SDKs to connect your software with PredictionIO Server:
 - Ruby
 
   - `Install Ruby SDK <https://github.com/PredictionIO/PredictionIO-Ruby-SDK>`_
-  - `Ruby SDK Documentation <http://rubydoc.info/github/PredictionIO/PredictionIO-Ruby-SDK/master/frames>`_
+  - `Ruby SDK Documentation </ruby/api/PredictionIO.html>`_
 
 
 First Steps with PredictionIO
 -----------------------------
- 
+
 After you have installed PredictionIO, consider reading :doc:`../tutorials/quickstart` as the next step.

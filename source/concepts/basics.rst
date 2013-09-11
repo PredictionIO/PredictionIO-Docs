@@ -10,9 +10,9 @@ Conceptually, the 3 main building blocks are: *App*, *Engine* and *Algorithm*.
 App
 ---
 
-App in PredictionIO Server is like a database or collection in a database server. 
-It is usually corresponds to the application you are building.
-Relevant data, such as user behavior, is collected by an app.  
+App in PredictionIO Server is like a database or collection in a database server.
+It usually corresponds to the application you are building.
+Relevant data, such as user behavior, is collected by an app.
 An app contains one or more prediction engines. App data is shared among these engines.
 
 Engine

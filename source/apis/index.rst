@@ -17,6 +17,7 @@ The following APIs enable you to collect and manage app data.
 
    user
    item
+   u2i
 
 The followings are engine-specific APIs for querying prediction results.
 

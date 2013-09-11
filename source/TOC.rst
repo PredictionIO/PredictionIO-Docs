@@ -14,6 +14,7 @@ Table of Contents
    installation/index
    tutorials/quickstart
    concepts/index
+   apis/index
    engines/itemrec/index
    engines/itemsim/index
    

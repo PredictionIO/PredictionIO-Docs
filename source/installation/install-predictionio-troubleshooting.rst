@@ -126,6 +126,6 @@ Please create or edit ~/.sbtconfig with these lines:
     |  -XX:+CMSClassUnloadingEnabled
     |  -XX:+UseConcMarkSweepGC -XX:MaxPermSize=724M"
      
-Now you can follow :doc:`../installation` again for a clean installation.
+Now you can follow :doc:`../installation/index` again for a clean installation.
 
 Thanks for your patience! If you still encounter any problem, please contact us at `PredictionIO Google Group <http://groups.google.com/group/predictionio-user/>`_.

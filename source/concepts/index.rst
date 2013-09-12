@@ -1,0 +1,25 @@
+========
+Concepts
+========
+
+.. index::
+   single: concepts
+
+This section describes the underlying design of PredictionIO as well as some concepts of machine learning for prediction.
+
+.. toctree::
+   :maxdepth: 1
+
+   basics
+   data
+   modeling
+   serving
+   optimization
+   
+Additional Topics:
+
+.. toctree::
+   :maxdepth: 1
+
+   
+   systemdesign

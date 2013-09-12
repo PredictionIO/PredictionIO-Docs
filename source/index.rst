@@ -6,13 +6,13 @@ Welcome to PredictionIO
 #######################
 
 PredictionIO is an open source Machine Learning Server. It empowers programmers and data engineers to build smart applications.
-
-PredictionIO is useful for any **web** and **mobile** apps. For example, you can:
+With PredictionIO, you can add the following features to your apps instantly:
 
 * predict user behaviors
 * offer personalized video, news, deals, ads and job openings
 * help users to discover interesting events, documents, apps and restaurants
 * provide impressive match-making services
+* and more....
 
 PredictionIO is built on top of solid open source technology. We support Hadoop, Mahout, Cascading and Scalding natively.
 
@@ -30,9 +30,9 @@ Learn How to Use PredictionIO
 *****************************
 These few steps can get you familiar with PredictionIO quickily.
 
-1. Read the :doc:`quickstart`.
-2. :doc:`Install PredictionIO <installation>` and give it a try!
-3. Learn from some examples in :doc:`Tutorials <tutorials>`.
+1. Read the :doc:`tutorials/quickstart`.
+2. :doc:`Install PredictionIO <installation/index>` and give it a try!
+3. Learn from some examples in :doc:`Tutorials <tutorials/index>`.
 
 The PredictionIO Guide
 **********************
@@ -72,6 +72,7 @@ The following resources provide additional information:
 
     `Stanford Machine Learning Course <https://www.coursera.org/course/ml>`_
         Stanford Machine Learning Course freely available on Coursera 
+        
     `Collaborative filtering: A Programmer's Guide to Data Mining <http://guidetodatamining.com/guide/ch2/DataMining-ch2.pdf>`_
         A free book chapter that introduces Collaborative Filtering with sample codes.
 

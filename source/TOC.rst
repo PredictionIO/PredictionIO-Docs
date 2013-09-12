@@ -11,18 +11,21 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   installation
-   quickstart
-   concepts
-   engines/itemrec
-   /* api */
-
+   installation/index
+   tutorials/quickstart
+   concepts/index
+   apis/index
+   engines/itemrec/index
+   engines/itemsim/index
+   
 .. end-toc
 
+   
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 

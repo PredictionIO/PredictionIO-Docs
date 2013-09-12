@@ -14,7 +14,7 @@ Step-by-Step How To
 .. toctree::
    :maxdepth: 1
 
-   tutorials/movie-recommendation
-   tutorials/android-client
-   tutorials/restaurant-recommendation
+   movie-recommendation
+   android-client
+   restaurant-recommendation
    

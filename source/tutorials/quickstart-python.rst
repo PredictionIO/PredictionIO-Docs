@@ -4,15 +4,15 @@ First Python PredictionIO App
 
 This is a quickstart guide of using PredictionIO Python SDK to write a very simple app.  It assumes that you have installed PredictionIO server.
 
-Register an App with PredictionIO
----------------------------------
+Add your App to PredictionIO
+----------------------------
 
 Go to the web admin panel of PredictionIO Server at ``http://<yourhost>:9000/``.
 Follow on-screen instruction to add the first app.
 Now an **app key** can be obtained from the control panel. You need this key for all PredictionIO API/SDK calls.
 
 Create a Prediction Engine
------------------------------
+--------------------------
 
 Next, you need to create a **Prediction Engine** under the new app. Each engine deals with one specific prediction problem.
 Let's start by creating an **Item Recommendation Engine** (itemrec) and name it **engine1**.

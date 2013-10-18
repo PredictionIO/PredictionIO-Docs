@@ -47,7 +47,7 @@ You need to create an administrator account to manage the newly installed Predic
 
 then in the VM, run:
 
-    $ /opt/PredictionIO/bin/user
+    $ /opt/PredictionIO/bin/users
 
 
 Accessing PredictionIO Server VM from the Host Machine

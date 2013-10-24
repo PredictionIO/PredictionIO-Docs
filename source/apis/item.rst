@@ -12,7 +12,7 @@ To add an item record, make an HTTP POST request to this URI:
 .. code-block:: rest
 
     POST /items.json
-    
+
 
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
@@ -25,6 +25,7 @@ Required Parameters
 | pio_iid      | The item ID string of the targeted item.               |
 +--------------+--------------------------------------------------------+
 | pio_itypes   | |  An array of item types that the item belongs to.    |
+|              | |  Item type cannot contain the tab (\\t) character.   |
 |              | |  Comma-separated string, e.g. "type1, type2"         |
 +--------------+--------------------------------------------------------+
 
@@ -32,7 +33,7 @@ Required Parameters
 .. note::
 
    |  *Update a Item Record*
-   |  If the pio_iid value is the same as the one of a previous record, all attributes of the previous item record will be discarded. Attributes of the new request will be stored.  
+   |  If the pio_iid value is the same as the one of a previous record, all attributes of the previous item record will be discarded. Attributes of the new request will be stored.
 
 
 Optional Parameters
@@ -70,9 +71,9 @@ Sample Response
 .. code-block:: json
 
     {"message":"Item created."}
-   
-   
-   
+
+
+
 Get an Item Record
 ------------------
 
@@ -81,7 +82,7 @@ To retrieve an item record, make an HTTP GET request to this URI:
 .. code-block:: rest
 
     GET /items/<the targeted iid>.json
-    
+
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
 
@@ -118,7 +119,7 @@ To delete an item record, make an HTTP DELETE request to this URI:
 .. code-block:: rest
 
     DELETE /items/<the targeted iid>.json
-    
+
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
 

@@ -69,14 +69,14 @@ Replace **<your app key>** with your app key string.
     for i in range(10):
         i = i + 1
         print "Add user", i
-        client.create_user(i)
+        client.create_user(str(i))
 
     # generate 50 items, with item ids 1,2,....,50
     # assign type id 1 to all of them
     for i in range(50):
         i = i + 1
         print "Add item", i
-        client.create_item(i, ('1',))
+        client.create_item(str(i), ('1',))
 
     # each user randomly views 10 items
     random.seed()
@@ -85,8 +85,8 @@ Replace **<your app key>** with your app key string.
         for count in range(10):
             i = random.randint(1, 50)
             print "User", u, "views item", i
-            client.identify(u)
-            client.record_action_on_item("view", i)
+            client.identify(str(u))
+            client.record_action_on_item("view", str(i))
 
     client.close()
 

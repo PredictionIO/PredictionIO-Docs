@@ -41,7 +41,7 @@ We are going to install it with Composer:
 
     {
         "require": {
-            "predictionio/predictionio": "*"
+            "predictionio/predictionio": "~0.6.0"
         }
     }
 
@@ -190,4 +190,4 @@ Congratulations! You have just create a "hello world" of PredictionIO in PHP.
    - You can import all kind of data into this app. Data will be shared among all engines.
    - For each engine, an algorithm is selected by default. You may manually select another one.
    - Pay attention to the engine status on the web admin panel. You can retrieve prediction only if its status is *running*.
-   
+

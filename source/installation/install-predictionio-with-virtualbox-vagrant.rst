@@ -36,12 +36,18 @@ This is the Vagrant base box in which PredictionIO will be installed.
 Create and Start PredictionIO VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Download the latest release PredictionIO Vagrant project from
-`GitHub <https://github.com/PredictionIO/PredictionIO-Vagrant/releases>`_ and
-unzip the file.
+Download `the latest release PredictionIO Vagrant project
+<https://github.com/PredictionIO/PredictionIO-Vagrant/releases>`_ from
+GitHub and unzip the file. The unzipped directory contains the necessary
+Vagrantfile and scripts to setup PredictionIO in the VM.
 
-Go to the directory **PredictionIO-Vagrant-x.y.z/**, run:
-*(x.y.z is the version number)*
+Go to the unzipped directory **PredictionIO-Vagrant-x.y.z/** *(x.y.z is the version number)*:
+
+.. code-block:: console
+
+	$ cd PredictionIO-Vagrant-x.y.z/
+
+Run:
 
 .. code-block:: console
 
@@ -116,5 +122,9 @@ You can completely remove the VM and delete all data with
 .. code-block:: console
 
     $ vagrant destroy
+
+.. note::
+
+	The **vagrant halt**, **vagrant up** and **vagrant destroy** commands should be run inside the directory PredictionIO-Vagrant-x.y.z/.
 
 See http://docs.vagrantup.com/v2/getting-started/teardown.html for more details.

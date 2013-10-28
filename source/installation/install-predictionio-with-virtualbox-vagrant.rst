@@ -37,23 +37,23 @@ Create and Start PredictionIO VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Download the latest release PredictionIO Vagrant project from
-`GitHub <https://github.com/PredictionIO/PredictionIO-Vagrant/releases>`_ and 
+`GitHub <https://github.com/PredictionIO/PredictionIO-Vagrant/releases>`_ and
 unzip the file.
 
-Go to the directory **PredictionIO-Vagrant-x.x.x/**, run:
-*(x.x.x is the version number)*
+Go to the directory **PredictionIO-Vagrant-x.y.z/**, run:
+*(x.y.z is the version number)*
 
 .. code-block:: console
 
 	$ vagrant up
 
-.. note:: The provision script *pio-x.x.x-vagrant.sh* is executed automatically
+.. note:: The provision script *pio-x.y.z-vagrant.sh* is executed automatically
 	as VM root user during the process of vagrant up. When you run **$ vagrant up**
-	for the *first time*, it will install all necessary libraries and setup 
+	for the *first time*, it will install all necessary libraries and setup
 	PredictionIO.
 
-.. note:: If you encounter error during importing key from *keyserver.ubuntu.com*, 
-	you may run **$ vagrant destroy** followed by **$ vagrant up** again to have 
+.. note:: If you encounter error during importing key from *keyserver.ubuntu.com*,
+	you may run **$ vagrant destroy** followed by **$ vagrant up** again to have
 	a clean retry.
 
 Now you have a PredictionIO Server running!

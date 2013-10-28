@@ -24,22 +24,39 @@ Install Vagrant
 After VirtualBox is installed, download and install Vagrant. Please refer to
 http://docs.vagrantup.com/v2/installation/index.html.
 
-Create PredictionIO VM
-~~~~~~~~~~~~~~~~~~~~~~
+Add precise64 Base Box
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+	$ vagrant box add precise64 http://files.vagrantup.com/precise64.box
+
+This is the Vagrant base box in which PredictionIO will be installed.
+
+Create and Start PredictionIO VM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Download the latest release PredictionIO Vagrant project from
-`GitHub <https://github.com/PredictionIO/PredictionIO-Vagrant/releases>`_,
-and create a PredictionIO precise64 box.
+`GitHub <https://github.com/PredictionIO/PredictionIO-Vagrant/releases>`_ and 
+unzip the file.
 
-    $ vagrant box add precise64 http://files.vagrantup.com/precise64.box
+Go to the directory **PredictionIO-Vagrant-x.x.x/**, run:
+*(x.x.x is the version number)*
 
-Start PredictionIO Server
-~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: console
 
-    $ vagrant up
+	$ vagrant up
 
-Vagrant will bring up the VM and setup the PredictionIO. Now you have a
-PredictionIO Server running!
+.. note:: The provision script *pio-x.x.x-vagrant.sh* is executed automatically
+	as VM root user during the process of vagrant up. When you run **$ vagrant up**
+	for the *first time*, it will install all necessary libraries and setup 
+	PredictionIO.
+
+.. note:: If you encounter error during importing key from *keyserver.ubuntu.com*, 
+	you may run **$ vagrant destroy** followed by **$ vagrant up** again to have 
+	a clean retry.
+
+Now you have a PredictionIO Server running!
 
 Create an Administrator Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,12 +64,17 @@ Create an Administrator Account
 You need to create an administrator account to manage the newly installed
 PredictionIO Server. To do so, you have to ssh to the VM by running
 
+.. code-block:: console
+
     $ vagrant ssh
 
 then in the VM, run:
 
-    $ /opt/PredictionIO/bin/users
+.. code-block:: console
 
+    vagrant@precise64$ /opt/PredictionIO/bin/users
+
+Follow the instructions to create an adminstrator account.
 
 Accessing PredictionIO Server VM from the Host Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,15 +99,21 @@ Shutdown Vagrant & PredictionIO Server
 
 To shutdown the VM without deleting any PredictionIO data, execute
 
+.. code-block:: console
+
     $ vagrant halt
 
 Later you can execute
+
+.. code-block:: console
 
     $ vagrant up
 
 again to bring up the PredictionIO VM.
 
 You can completely remove the VM and delete all data with
+
+.. code-block:: console
 
     $ vagrant destroy
 

@@ -7,10 +7,12 @@ a virtual machine (VM) with VirtualBox. It is recommended for a quick
 PredictionIO installation in a testing or development environment, as it will
 save you from many of the common pitfalls of the installation process.
 
+
 Installation
 ------------
 
 To get started, please follow the steps below.
+
 
 Install VirtualBox
 ~~~~~~~~~~~~~~~~~~
@@ -18,11 +20,13 @@ Install VirtualBox
 Download and install VirtualBox. Please refer to
 https://www.virtualbox.org/wiki/Downloads.
 
+
 Install Vagrant
 ~~~~~~~~~~~~~~~
 
 After VirtualBox is installed, download and install Vagrant. Please refer to
 http://docs.vagrantup.com/v2/installation/index.html.
+
 
 Add precise64 Base Box
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -33,6 +37,7 @@ Add precise64 Base Box
 
 This is the Vagrant base box in which PredictionIO will be installed.
 
+
 Create and Start PredictionIO VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -41,7 +46,8 @@ Download `the latest release PredictionIO Vagrant project
 GitHub and unzip the file. The unzipped directory contains the necessary
 Vagrantfile and scripts to setup PredictionIO in the VM.
 
-Go to the unzipped directory **PredictionIO-Vagrant-x.y.z/** *(x.y.z is the version number)*:
+Go to the unzipped directory ``PredictionIO-Vagrant-x.y.z/``
+*(x.y.z is the version number)*:
 
 .. code-block:: console
 
@@ -53,16 +59,21 @@ Run:
 
 	$ vagrant up
 
-.. note:: The provision script *pio-x.y.z-vagrant.sh* is executed automatically
-	as VM root user during the process of vagrant up. When you run **$ vagrant up**
-	for the *first time*, it will install all necessary libraries and setup
-	PredictionIO.
+.. note::
 
-.. note:: If you encounter error during importing key from *keyserver.ubuntu.com*,
-	you may run **$ vagrant destroy** followed by **$ vagrant up** again to have
-	a clean retry.
+    The provision script ``pio-x.y.z-vagrant.sh`` is executed automatically
+    as VM root user during the process of vagrant up. When you run
+    ``vagrant up`` for the *first time*, it will install all necessary
+    libraries and setup PredictionIO.
+
+.. note::
+
+    If you encounter error during importing key from *keyserver.ubuntu.com*,
+    you may run ``vagrant destroy`` followed by ``vagrant up`` again to have
+    a clean retry.
 
 Now you have a PredictionIO Server running!
+
 
 Create an Administrator Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,6 +93,7 @@ then in the VM, run:
 
 Follow the instructions to create an adminstrator account.
 
+
 Accessing PredictionIO Server VM from the Host Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -89,7 +101,7 @@ With the administrator account, you can sign in PredictionIO admin panel
 through the host machine browser http://localhost:9000.
 
 You can import data into PredictionIO with our REST API/SDK from your host
-machine through the API server http://localhost:8000
+machine through the API server http://localhost:8000.
 
 In the default Vagrantfile setup, the ports 8000, 9000, 50030 and 50070 are
 forwarded from VM to the host machine.
@@ -117,6 +129,12 @@ Later you can execute
 
 again to bring up the PredictionIO VM.
 
+.. note::
+
+    If you are running Vagrant 1.3.x, you need to use
+    ``vagrant up --provision`` instead to start PredictionIO when the virtual
+    machine boots.
+
 You can completely remove the VM and delete all data with
 
 .. code-block:: console
@@ -125,6 +143,7 @@ You can completely remove the VM and delete all data with
 
 .. note::
 
-	The **vagrant halt**, **vagrant up** and **vagrant destroy** commands should be run inside the directory PredictionIO-Vagrant-x.y.z/.
+    The ``vagrant halt``, ``vagrant up`` and ``vagrant destroy`` commands
+    should be run inside the directory ``PredictionIO-Vagrant-x.y.z/``.
 
 See http://docs.vagrantup.com/v2/getting-started/teardown.html for more details.

@@ -17,8 +17,8 @@ Create a Prediction Engine
 Next, you need to create a **Prediction Engine** under the new app. Each engine deals with one specific prediction problem.
 Let's start by creating an **Item Recommendation Engine** (itemrec) and name it **engine1**.
 
-Create PHP Project
-------------------
+Create a Python Project
+-----------------------
 
 Let's create a new project directory:
 
@@ -60,33 +60,33 @@ Replace **<your app key>** with your app key string.
 
 .. code-block:: python
 
-    import predictionio
     import random
+    
+    import predictionio
+    
+    random.seed()
 
     client = predictionio.Client(appkey="<your app key>")
 
     # generate 10 users, with user ids 1,2,....,10
-    for i in range(10):
-        i = i + 1
-        print "Add user", i
-        client.create_user(str(i))
+    user_ids = [str(i) for i in range(1, 51)]
+    for user_id in user_ids:
+        print "Add user", user_id
+        client.create_user(user_id)
 
     # generate 50 items, with item ids 1,2,....,50
     # assign type id 1 to all of them
-    for i in range(50):
-        i = i + 1
-        print "Add item", i
-        client.create_item(str(i), ('1',))
+    item_ids = [str(i) for i in range(1, 51)]
+    for item_id in item_ids:
+        print "Add item", item_id
+        client.create_item(item_id, ('1',))
 
     # each user randomly views 10 items
-    random.seed()
-    for u in range(10):
-        u = u + 1
-        for count in range(10):
-            i = random.randint(1, 50)
-            print "User", u, "views item", i
-            client.identify(str(u))
-            client.record_action_on_item("view", str(i))
+    for user_id in user_ids:
+        for viewed_item in random.sample(item_ids, 10)
+            print "User", user_id ,"views item", viewed_item
+            client.identify(user_id)
+            client.record_action_on_item("view", viewed_item)
 
     client.close()
 
@@ -149,11 +149,11 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
     client = predictionio.Client(appkey="<your app key>")
 
     # Recommend 5 items to each user
-    for u in range(5):
-        u = u + 1
-        print "Retrieve top 5 recommendations for user", u
+    user_ids = [str(x) for x in range(1, 6)]
+    for user_id in user_ids:
+        print "Retrieve top 5 recommendations for user", user_id
         try:
-            client.identify(str(u))
+            client.identify(user_id)
             rec = client.get_itemrec_topn("<engine name>", 5)
             print rec
         except predictionio.ItemRecNotFoundError as e:

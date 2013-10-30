@@ -83,7 +83,7 @@ Replace **<your app key>** with your app key string.
 
     # each user randomly views 10 items
     for user_id in user_ids:
-        for viewed_item in random.sample(item_ids, 10)
+        for viewed_item in random.sample(item_ids, 10):
             print "User", user_id ,"views item", viewed_item
             client.identify(user_id)
             client.record_action_on_item("view", viewed_item)

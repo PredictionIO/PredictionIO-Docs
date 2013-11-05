@@ -69,7 +69,7 @@ Replace **<your app key>** with your app key string.
     client = predictionio.Client(appkey="<your app key>")
 
     # generate 10 users, with user ids 1,2,....,10
-    user_ids = [str(i) for i in range(1, 51)]
+    user_ids = [str(i) for i in range(1, 11)]
     for user_id in user_ids:
         print "Add user", user_id
         client.create_user(user_id)

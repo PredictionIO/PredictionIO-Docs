@@ -103,13 +103,23 @@ through the host machine browser http://localhost:9000.
 You can import data into PredictionIO with our REST API/SDK from your host
 machine through the API server http://localhost:8000.
 
-In the default Vagrantfile setup, the ports 8000, 9000, 50030 and 50070 are
-forwarded from VM to the host machine.
+In the default Vagrantfile setup, the host ports 8000, 9000, 50030 and
+50070 are forwarded to the VM.
 
 * Port 8000 - PredictionIO API server
 * Port 9000 - PredictionIO web admin server
 * Port 50030 - Hadoop Job tracker
 * Port 50070 - Hadoop Namenode
+
+
+Synced Folders Between the Host Machine and the VM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, the directory ``/vagrant`` on the VM is synced with the host
+machine directory ``PredictionIO-Vagrant-x.y.z/`` so you can easily share
+files between the host and the VM.
+
+Please see http://docs.vagrantup.com/v2/synced-folders/index.html for more details.
 
 
 Shutdown Vagrant & PredictionIO Server
@@ -147,3 +157,5 @@ You can completely remove the VM and delete all data with
     should be run inside the directory ``PredictionIO-Vagrant-x.y.z/``.
 
 See http://docs.vagrantup.com/v2/getting-started/teardown.html for more details.
+
+

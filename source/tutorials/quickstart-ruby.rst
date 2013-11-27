@@ -1,8 +1,8 @@
 =============================
-First Python PredictionIO App
+First Ruby PredictionIO App
 =============================
 
-This is a quickstart guide of using PredictionIO Python SDK to write a very simple app.  It assumes that you have installed PredictionIO server.
+This is a quickstart guide of using PredictionIO Ruby SDK to write a very simple app.  It assumes that you have installed PredictionIO server.
 
 Add your App to PredictionIO
 ----------------------------
@@ -17,84 +17,70 @@ Create a Prediction Engine
 Next, you need to create a **Prediction Engine** under the new app. Each engine deals with one specific prediction problem.
 Let's start by creating an **Item Recommendation Engine** (itemrec) and name it **engine1**.
 
-Create a Python Project
+Create a Ruby Project
 -----------------------
 
 Let's create a new project directory:
 
 .. code-block:: console
 
-    mkdir pydemo
-    cd pydemo
+    mkdir rbdemo
+    cd rbdemo
 
-Install Python SDK
+Install Ruby SDK
 ------------------
 
-To install the module from PyPI, you may
+To install the Ruby SDK, run
 
 .. code-block:: console
 
-    pip install predictionio
+    gem install predictionio
 
-or
 
-.. code-block:: console
-
-    easy_install predictionio
-
-If you have cloned the repository and want to install directly from there,
-do the following in the root directory of the repository:
-
-.. code-block:: console
-
-    python setup.py install
-
-This will install the ``predictionio`` module to your Python distribution.
+This will install the ``predictionio`` module to your Ruby distribution.
 
 Generate and Import Data
 ------------------------
 
-In the same directory, create import.py as below.
+In the same directory, create import.rb as below.
 
 Replace **<your app key>** with your app key string.
 
-.. code-block:: python
+.. code-block:: ruby
 
-    import random
-    
-    import predictionio
-    
-    random.seed()
+    require "predictionio"
 
-    client = predictionio.Client(appkey="<your app key>")
+    client = PredictionIO::Client.new("<your app key>")
 
-    # generate 10 users, with user ids 1,2,....,10
-    user_ids = [str(i) for i in range(1, 11)]
-    for user_id in user_ids:
-        print "Add user", user_id
-        client.create_user(user_id)
+    # generate 10 users, with user ids "1","2",....,"10"
+    user_ids = ("1".."10").to_a
+    for uid in user_ids
+      puts "Add user #{uid}"
+      client.create_user(uid)
+    end
 
-    # generate 50 items, with item ids 1,2,....,50
+    # generate 50 items, with item ids "1","2",....,"50"
     # assign type id 1 to all of them
-    item_ids = [str(i) for i in range(1, 51)]
-    for item_id in item_ids:
-        print "Add item", item_id
-        client.create_item(item_id, ('1',))
+    item_ids = ("1".."50").to_a
+    for iid in item_ids
+      puts "Add item #{iid}"
+      client.create_item(iid, ["1"])
+    end
 
     # each user randomly views 10 items
-    for user_id in user_ids:
-        for viewed_item in random.sample(item_ids, 10):
-            print "User", user_id ,"views item", viewed_item
-            client.identify(user_id)
-            client.record_action_on_item("view", viewed_item)
-
-    client.close()
+    for uid in user_ids
+      for iid in item_ids.sample(10)
+        puts "User #{uid} views item #{iid}"
+        client.identify(uid)
+        client.record_action_on_item("view", iid)
+      end
+    end
 
 And execute it to generate users, items and random view actions.
 
 .. code-block:: console
 
-    python import.py
+    ruby import.rb
 
 Check Engine Status
 -------------------
@@ -138,35 +124,37 @@ If you see the some Hadoop jobs are running, then your setup is probably okay. P
 Retrieve Prediction
 -------------------
 
-Create a file 'show.py' with this code:
+Create a file 'show.rb' with this code:
 
 Replace **<engine name>** with your engine name. It should be named '**engine1**' in this example.
 
-.. code-block:: python
+.. code-block:: ruby
 
-    import predictionio
+    require "predictionio"
 
-    client = predictionio.Client(appkey="<your app key>")
+    client = PredictionIO::Client.new("<your app key>")
 
     # Recommend 5 items to each user
-    user_ids = [str(x) for x in range(1, 6)]
-    for user_id in user_ids:
-        print "Retrieve top 5 recommendations for user", user_id
-        try:
-            client.identify(user_id)
-            rec = client.get_itemrec_topn("<engine name>", 5)
-            print rec
-        except predictionio.ItemRecNotFoundError as e:
-            print 'Caught exception:', e.strerror()
+    user_ids = ("1".."10").to_a
+    for uid in user_ids
+      puts "Retrieve top 5 recommendations for user #{uid}"
+      client.identify(uid)
+      begin
+        rec = client.get_itemrec_top_n("<engine name>", 5)
+        puts "#{rec}"
+      rescue PredictionIO::Client::ItemRecNotFoundError => e
+        puts "Recommendation not found"
+      end
+    end
 
 Execute it AFTER your engine status becomes **Running** or you may not see any recommendation.
 
 .. code-block:: console
 
-    python show.py
+    ruby show.rb
 
 
-Congratulations! You have just create a "hello world" of PredictionIO in Python.
+Congratulations! You have just create a "hello world" of PredictionIO in Ruby.
 
 
 .. note::

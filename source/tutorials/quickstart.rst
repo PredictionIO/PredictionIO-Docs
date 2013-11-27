@@ -12,3 +12,5 @@ Let's try to get a really simple sample app up and running. Choose one:
 
    First Client Code in PHP <quickstart-php>
    First Client Code in Python <quickstart-python>
+   First Client Code in Ruby <quickstart-ruby>
+   

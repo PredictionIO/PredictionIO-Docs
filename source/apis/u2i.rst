@@ -29,6 +29,9 @@ Required Parameters
 | pio_action   | |  String. Built-in action types are:                  |
 |              | |  "rate", "like", "dislike", "view" and "conversion"  |
 +--------------+--------------------------------------------------------+
+| pio_rate     | | The rating value (integer 1 to 5).                   |
+|              | | **Note**: required only if pio_action is "rate".     |
++--------------+--------------------------------------------------------+
 
 
 .. note::

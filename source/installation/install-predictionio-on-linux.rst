@@ -139,7 +139,7 @@ tracked by viewing its log files in ``vendors/mongodb/logs``.
 
     $ mkdir -p vendors/mongodb/data
     $ mkdir -p vendors/mongodb/logs
-    $ vendors/mongodb-linux-x86_64-2.4.3/bin/mongod --config conf/mongodb/mongodb.conf >/dev/null 2>&1 &
+    $ vendors/mongodb-linux-x86_64-2.4.6/bin/mongod --config conf/mongodb/mongodb.conf >/dev/null 2>&1 &
 
 Once MongoDB is ready and accepting connections, you may proceed with:
 

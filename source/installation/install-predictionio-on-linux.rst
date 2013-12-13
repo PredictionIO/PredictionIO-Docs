@@ -2,6 +2,7 @@
 Install PredictionIO on Linux
 =============================
 
+
 Prerequisites
 -------------
 
@@ -12,7 +13,8 @@ The default PredictionIO setup assumes that you have the following environment:
 
 In addition, the following software are required:
 
-* Apache Hadoop 1.0+ (or any compatible distribution that supports the "hadoop jar" command; see :ref:`hadoop2`)
+* Apache Hadoop 1.0+ (or any compatible distributions that supports the
+  "hadoop jar" command; see :ref:`hadoop2`)
 * MongoDB 2.2+ (http://www.mongodb.org/)
 
 .. note::
@@ -27,82 +29,57 @@ In addition, the following software are required:
 * zip
 
 
-Upgrading to 0.5.0
-------------------
-
-If you are upgrading from 0.4.x to 0.5.0, please follow these steps:
-
-#. Download PredictionIO 0.5.0 and extract it to a location different from the
-   previous version.
-#. If you have any custom configuration with the previous version, migrate
-   them to the new version. It is not adviced to simply copy the old
-   configuration file over as new configuration files usually come with new
-   configuration keys.
-#. Make sure any previous versions of PredictionIO is not running.
-#. Run ``bin/setup-vendors.sh`` to download dependent third-party software.
-   Migrate any custom third-party configuration from the previous installation.
-#. Run ``bin/setup.sh`` to populate PredictionIO internal data.
-#. Run ``bin/migration/appdata`` and follow on-screen instructions to migrate
-   any previous apps' data to the new format.
-#. Start PredictionIO 0.5.0 with ``bin/start-all.sh``.
-
-
-Upgrading to 0.4
-----------------
-
-If you are upgrading from previous versions of PredictionIO to 0.4, please
-follow these steps:
-
-#. Download PredictionIO 0.4 and extract it to a location different from the
-   previous version.
-#. If you have any custom configuration with the previous version, migrate
-   them to the new version. It is not adviced to simply copy the old
-   configuration file over as new configuration files usually come with new
-   configuration keys.
-#. Make sure any previous versions of PredictionIO is not running.
-#. Run ``bin/setup-vendors.sh`` to download dependent third-party software.
-   Migrate any custom third-party configuration from the previous installation.
-#. Run ``bin/setup.sh`` to populate PredictionIO internal data.
-#. Run ``bin/settings04`` and follow on-screen instructions to migrate any
-   previous settings of apps, engines, algorithms, etc.
-#. Start PredictionIO 0.4 with ``bin/start-all.sh``.
-
-
 Installation
 ------------
 
 To start using PredictionIO, please follow the steps below.
 
 
-Downloading and Setting Up PredictionIO
+Downloading PredictionIO Binaries
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Start by downloading a `binary release <http://prediction.io/download>`_ of PredictionIO.
+Start by downloading a `binary release <http://prediction.io/download>`_ of
+PredictionIO. Unzip the binary release and change your working directory to
+the extraction location.
 
-Please be aware that:
+.. code-block:: console
 
-*   Hadoop
+    $ unzip PredictionIO-<version>.zip
+    $ cd PredictionIO-<version>
 
-    If you do not have Hadoop installed, setup-vendors.sh script will set up one for you. In order to do so, please check that you can ssh to the localhost without a passphrase:
+
+Preparing Your System for Hadoop
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you do not have Hadoop installed, the ``bin/setup-vendors.sh`` script described
+in the next step will set up one for you. Before that, there are a few steps
+that must be performed manually.
+
+#.  Please check that you can ssh to localhost without a passphrase:
 
     .. code-block:: console
 
         $ ssh localhost
 
-    If you see "connection refused", it means that the SSH service has not been enabled in the machine yet. Please enable it before you continue.
+    If you see any errors similar to "connection refused", it means that your
+    machine's SSH service has not been enabled yet. Please enable it before you
+    continue.
 
-    If you cannot ssh to localhost without a passphrase, execute the following commands:
+    If you cannot ssh to localhost without a passphrase, execute the following
+    commands:
 
     .. code-block:: console
 
         $ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
         $ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
 
-    By default, Hadoop uses `/tmp` as NameNode and DataNode storage. In some
-    cases, this will be insufficient and cause DataNode to go offline during
-    Hadoop job execution. To specify a different location for NameNode and
-    DataNode storage, edit ``vendors/hadoop-<version>/conf/hdfs-site.xml`` and
-    add:
+    When asked whether the host key should be saved, make sure it is answered
+    yes to avoid the same interactive prompt in the future.
+
+#.  By default, Hadoop uses `/tmp` as NameNode and DataNode storage. Many
+    PredictionIO users have experienced problems due to this default setting,
+    thus we highly recommend this setting be changed for a smooth installation
+    experience. Edit ``conf/hadoop/hdfs-site.xml`` and add:
 
     .. code-block:: xml
 
@@ -115,45 +92,38 @@ Please be aware that:
             <value>/path_to_big_storage_for_datanode</value>
         </property>
 
-    Make sure NameNode and DataNode directories are different to avoid any locking error.
+    Create these directories and make sure they are owned by the user that will
+    start PredictionIO, and their permissions must be 0755. These directories
+    must be different locations to avoid any locking errors.
 
-*   Java 6+
 
-    If you are asked to provide your Java installation path, please type in the *JAVA_HOME* path of a Java 6+ installation in your system.
+Setting Up PredictionIO
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Now you can run these commands:
+Run the 3rd-party software setup script:
 
 .. code-block:: console
 
-    $ unzip PredictionIO-{current version}.zip
-    $ cd PredictionIO-{current version}
     $ bin/setup-vendors.sh
 
-If you rely on ``bin/setup-vendors.sh`` to download and install MongoDB, you
-will need to manually start MongoDB before running ``bin/setup.sh``. This
-glitch will be fixed in a future release. Please allow a few minutes for
-MongoDB to pre-allocate data files for the first time. This progress can be
-tracked by viewing its log files in ``vendors/mongodb/logs``.
+If you are asked to provide your Java installation path, please type in the
+*JAVA_HOME* path of a Java 6+ installation in your system.
 
-.. code-block:: console
-
-    $ mkdir -p vendors/mongodb/data
-    $ mkdir -p vendors/mongodb/logs
-    $ vendors/mongodb-linux-x86_64-2.4.6/bin/mongod --config conf/mongodb/mongodb.conf >/dev/null 2>&1 &
-
-Once MongoDB is ready and accepting connections, you may proceed with:
+Afterwards, run the main setup script:
 
 .. code-block:: console
 
     $ bin/setup.sh
 
 
-Start PredictionIO
-~~~~~~~~~~~~~~~~~~~
+Starting PredictionIO
+~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
-    Please make sure that **MongoDB** is running before you run this start script.
+    PredictionIO depends on both **Hadoop** and **MongoDB** be running to work
+    properly. If you did not depend on ``bin/setup-vendors.sh`` to install
+    them, make sure they are set up properly and running.
 
 To start all PredictionIO services:
 
@@ -161,24 +131,27 @@ To start all PredictionIO services:
 
     $ bin/start-all.sh
 
-
 Now, you should be able to access PredictionIO at http://localhost:9000/!
+Please proceed to the next step and create an account to access the web-based
+administration panel.
 
-Create an Administrator Account
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creating a User Account
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
+
     Please make sure that **MongoDB** is running before you run this tool.
 
-You must add at least one administrator to be able to log in the web panel:
+You must add at least one user to be able to log in the web panel:
 
 .. code-block:: console
 
     $ bin/users
 
 
-Stop PredictionIO
-~~~~~~~~~~~~~~~~~
+Stopping PredictionIO
+~~~~~~~~~~~~~~~~~~~~~
 
 To stop all PredictionIO services:
 
@@ -196,11 +169,11 @@ If you are running the local Hadoop that comes with PredictionIO, you can stop H
 Troubleshooting
 ---------------
 
-If you cannot run PredictionIO properly, please refer to: 
+If you cannot run PredictionIO properly, please refer to:
 
 .. toctree::
     :maxdepth: 1
-    
+
     install-predictionio-troubleshooting
 
 
@@ -208,6 +181,7 @@ Advanced Notes
 --------------
 
 .. _hadoop2:
+
 
 Hadoop 0.22+ / 2+
 ~~~~~~~~~~~~~~~~~
@@ -224,6 +198,7 @@ modify the following in ``conf/predictionio.conf``.
 
     io.prediction.algorithms.mahout-core-job.jar=your_custom_mahout_job_jar
 
+
 MongoDB at a Non-local Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -236,6 +211,11 @@ If this is not the case, update the configuration in ``conf/predictionio.conf``.
 
     io.prediction.commons.settings.db.port=12345
 
+Update also other similar entries.
+
+Please use a remote host name that can be resolved by your host.
+
+
 Specify the Temporary Space
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -245,13 +225,3 @@ sometimes be too large for the default temporary space. To use a different
 temporary space, update the configuration in ``conf/predictionio.conf``.
 
     io.prediction.commons.settings.local.temp.root=/a_big_temp_space
-
-Compile Components Manually
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you are a PredictionIO contributor/developer, you may refer to:
-
-.. toctree::
-    :maxdepth: 1
-    
-    install-predictionio-manual-compile

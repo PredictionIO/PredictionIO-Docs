@@ -22,9 +22,13 @@ Required Parameters
 +==============+========================================================+
 | pio_appkey   |  app key of your PredictionIO app.                     |
 +--------------+--------------------------------------------------------+
-| pio_uid      | The user ID string of the targeted user.               |
+| pio_uid      | | The user ID string of the targeted user.             |
+|              | | **Note**: cannot contain the tab (\\t) or comma (,)  |
+|              | characters.                                            |
 +--------------+--------------------------------------------------------+
-| pio_iid      | The item ID string of the targeted item.               |
+| pio_iid      | | The item ID string of the targeted item.             |
+|              | | **Note**: cannot contain the tab (\\t) or comma (,)  |
+|              | characters.                                            |
 +--------------+--------------------------------------------------------+
 | pio_action   | |  String. Built-in action types are:                  |
 |              | |  "rate", "like", "dislike", "view" and "conversion"  |

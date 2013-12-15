@@ -23,8 +23,8 @@ Required Parameters
 | pio_appkey   |  app key of your PredictionIO app.                     |
 +--------------+--------------------------------------------------------+
 | pio_iid      | | The item ID string of the targeted item.             |
-|              | | **Note**: cannot contain the tab (\\t) or comma (,)  |
-|              | characters.                                            |
+|              | | **Note**: cannot contain any tab (\\t) or comma (,)  |
+|              | | characters.                                          |
 +--------------+--------------------------------------------------------+
 | pio_itypes   | |  An array of item types that the item belongs to.    |
 |              | |  Item type cannot contain the tab (\\t) character.   |

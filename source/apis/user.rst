@@ -12,7 +12,7 @@ To add a user record, make an HTTP POST request to this URI:
 .. code-block:: rest
 
     POST /users.json
-    
+
 
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
@@ -23,15 +23,15 @@ Required Parameters
 | pio_appkey   |  app key of your PredictionIO app.                     |
 +--------------+--------------------------------------------------------+
 | pio_uid      | | The user ID string of the targeted user.             |
-|              | | **Note**: cannot contain the tab (\\t) or comma (,)  |
-|              | characters.                                            |
+|              | | **Note**: cannot contain any tab (\\t) or comma (,)  |
+|              | | characters.                                          |
 +--------------+--------------------------------------------------------+
 
 
 .. note::
 
    |  *Update a User Record*
-   |  If the pio_uid value is the same as the one of a previous record, all attributes of the previous user record will be discarded. Attributes of the new request will be stored.  
+   |  If the pio_uid value is the same as the one of a previous record, all attributes of the previous user record will be discarded. Attributes of the new request will be stored.
 
 
 Optional Parameters
@@ -57,9 +57,9 @@ Sample Response
 .. code-block:: json
 
     {"message":"User created."}
-   
-   
-   
+
+
+
 Get a User Record
 -----------------
 
@@ -68,7 +68,7 @@ To retrieve a user record, make an HTTP GET request to this URI:
 .. code-block:: rest
 
     GET /users/<the targeted uid>.json
-    
+
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
 
@@ -94,7 +94,7 @@ To delete a user record, make an HTTP DELETE request to this URI:
 .. code-block:: rest
 
     DELETE /users/<the targeted uid>.json
-    
+
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
 

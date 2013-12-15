@@ -1,6 +1,6 @@
-=============================
-Install PredictionIO on Linux
-=============================
+================================
+Installing PredictionIO on Linux
+================================
 
 
 Prerequisites
@@ -169,12 +169,8 @@ If you are running the local Hadoop that comes with PredictionIO, you can stop H
 Troubleshooting
 ---------------
 
-If you cannot run PredictionIO properly, please refer to:
-
-.. toctree::
-    :maxdepth: 1
-
-    install-predictionio-troubleshooting
+If you cannot run PredictionIO properly, please refer to
+:doc:`install-predictionio-troubleshooting`.
 
 
 Advanced Notes

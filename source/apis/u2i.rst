@@ -12,7 +12,7 @@ To record a user-to-item action, such as a user *views* an item, make an HTTP PO
 .. code-block:: rest
 
     POST /actions/u2i.json
-    
+
 
 Required Parameters
 ^^^^^^^^^^^^^^^^^^^
@@ -23,12 +23,12 @@ Required Parameters
 | pio_appkey   |  app key of your PredictionIO app.                     |
 +--------------+--------------------------------------------------------+
 | pio_uid      | | The user ID string of the targeted user.             |
-|              | | **Note**: cannot contain the tab (\\t) or comma (,)  |
-|              | characters.                                            |
+|              | | **Note**: cannot contain any tab (\\t) or comma (,)  |
+|              | | characters.                                          |
 +--------------+--------------------------------------------------------+
 | pio_iid      | | The item ID string of the targeted item.             |
-|              | | **Note**: cannot contain the tab (\\t) or comma (,)  |
-|              | characters.                                            |
+|              | | **Note**: cannot contain any tab (\\t) or comma (,)  |
+|              | | characters.                                          |
 +--------------+--------------------------------------------------------+
 | pio_action   | |  String. Built-in action types are:                  |
 |              | |  "rate", "like", "dislike", "view" and "conversion"  |
@@ -41,7 +41,7 @@ Required Parameters
 .. note::
 
    |  *Update an Action Record*
-   |  Action records will be accumulated. There is no way to update or delete a recorded action.   
+   |  Action records will be accumulated. There is no way to update or delete a recorded action.
 
 
 Optional Parameters

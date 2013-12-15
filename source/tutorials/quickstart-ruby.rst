@@ -54,7 +54,7 @@ Replace **<your app key>** with your app key string.
 
     # generate 10 users, with user ids "1","2",....,"10"
     user_ids = ("1".."10").to_a
-    for uid in user_ids
+    user_ids.each do |uid|
       puts "Add user #{uid}"
       client.create_user(uid)
     end
@@ -62,14 +62,14 @@ Replace **<your app key>** with your app key string.
     # generate 50 items, with item ids "1","2",....,"50"
     # assign type id 1 to all of them
     item_ids = ("1".."50").to_a
-    for iid in item_ids
+    item_ids.each do |iid|
       puts "Add item #{iid}"
       client.create_item(iid, ["1"])
     end
 
     # each user randomly views 10 items
-    for uid in user_ids
-      for iid in item_ids.sample(10)
+    user_ids.each do |uid|
+      item_ids.sample(10).each do |iid|
         puts "User #{uid} views item #{iid}"
         client.identify(uid)
         client.record_action_on_item("view", iid)
@@ -135,8 +135,7 @@ Replace **<engine name>** with your engine name. It should be named '**engine1**
     client = PredictionIO::Client.new("<your app key>")
 
     # Recommend 5 items to each user
-    user_ids = ("1".."10").to_a
-    for uid in user_ids
+    ("1".."10").each do |uid|
       puts "Retrieve top 5 recommendations for user #{uid}"
       client.identify(uid)
       begin

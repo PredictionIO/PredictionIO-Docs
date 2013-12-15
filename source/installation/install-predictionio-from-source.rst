@@ -1,6 +1,6 @@
-=====================================
-Install PredictionIO from Source Code
-=====================================
+========================================
+Installing PredictionIO from Source Code
+========================================
 
 Building Dependencies
 ---------------------

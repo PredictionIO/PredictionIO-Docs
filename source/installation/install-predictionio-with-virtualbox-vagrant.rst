@@ -1,6 +1,6 @@
-==============================================
-Install PredictionIO with Vagrant (VirtualBox)
-==============================================
+=================================================
+Installing PredictionIO with Vagrant (VirtualBox)
+=================================================
 
 Vagrant is an open source tool for simplifying the download and setup steps of
 a virtual machine (VM) with VirtualBox. It is recommended for a quick

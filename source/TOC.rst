@@ -10,6 +10,7 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 2
+   :includehidden:
 
    installation/index
    tutorials/quickstart
@@ -17,15 +18,13 @@ Table of Contents
    apis/index
    engines/itemrec/index
    engines/itemsim/index
-   
+
 .. end-toc
 
-   
+
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-

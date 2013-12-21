@@ -76,18 +76,35 @@ scaling the data store.
   pair would require around 150 bytes of disk storage. The total required
   space is more elaborated:
 
-  # users/items * # predictions per user/item * # algorithms trained * 2
+  ``# users or items * # predictions per user or item * # algorithms trained * 2``
 
   As an example, if you have 1 million users, 50 predictions per users and 5
   engines each with one deployed algorithm, the total storage requirement will
-  be 75 GB. The double factor at the end of the equation is due to
-  PredictionIO keeping the previous prediction model while a new one is being
-  written to prevent interruption of prediction retrival by the API server.
+  be 75 GB. The double factor at the end of the equation applies only to
+  deployed algorithm. This is because PredictionIO will not delete the old
+  prediction model until a new one has finished writing. This mechanism allows
+  non-interrupted prediction retrieval via the API server.
 
   Notice that this requirement also applies to evaluation and tuning. When
   evaluation or tuning runs, it is quite common that the system will train
-  around 3 to 15 algorithms. When this is the case, the double factor should be
-  removed from the calculation.
+  around 3 to 15 algorithms. In this case, the double factor should be removed
+  from the calculation because there will only be one prediction model for each
+  algorithm.
+
+
+Hadoop
+~~~~~~
+
+
+
+
+Scheduler Server
+~~~~~~~~~~~~~~~~
+
+If you only train with non-distributed algorithms, you may need to scale the
+scheduler because non-distributed algorithms run on the same machine as the
+scheduler. Due to different nature of different algorithms, there is no
+standard rules to determine when you need to scale the scheduler.
 
 
 Scaling

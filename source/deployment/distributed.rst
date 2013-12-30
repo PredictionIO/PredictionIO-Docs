@@ -57,18 +57,24 @@ scaling the data store.
   If your application regularly generates new users and/or items, you need to
   take this growth into consideration. If your User/Item ID's are UUID's that
   are 36-character long, each user/item would require around 120 bytes of disk
-  storage. As an example, for each 1 million users, you will need 120 MB of
-  space.
+  storage.
+
+  ``120B * # users or items``
+
+  As an example, for each 1 million users, you will need 120 MB of space.
 
 * Behavior Data
 
   In most cases, your application's users will generate many actions, and it is
   usually due to storage growth that you need to scale the data storage.
   Assuming User ID's and Item ID's are UUID's that are 36-character long, each
-  user-to-item action would require around 150 bytes of disk storage. If you
-  run an online store with 100000 active users and each of them generates 20
-  actions daily, your data store will grow by around 300 MB each day, which is
-  about 9 GB per month.
+  user-to-item action would require around 150 bytes of disk storage.
+
+  ``150B * # actions``
+
+  If you run an online store with 100000 active users and each of them
+  generates 20 actions daily, your data store will grow by around 300 MB each
+  day, which is about 9 GB per month.
 
 * Prediction Model
 
@@ -76,7 +82,7 @@ scaling the data store.
   pair would require around 150 bytes of disk storage. The total required
   space is more elaborated:
 
-  ``# users or items * # predictions per user or item * # algorithms trained * 2``
+  ``150B * # users or items * # predictions per user or item * # algorithms trained * 2``
 
   As an example, if you have 1 million users, 50 predictions per users and 5
   engines each with one deployed algorithm, the total storage requirement will
@@ -95,7 +101,35 @@ scaling the data store.
 Hadoop
 ~~~~~~
 
+The Hadoop distribution is a large collection of components for building
+clusters that is capable of highly parallelized computation and distributed
+storage. Scaling Hadoop is a very board topic itself. In this section, we are
+going to touch a couple aspects briefly that are specific to PredictionIO. For
+full details of scaling Hadoop, please refer to http://hadoop.apache.org/.
 
+When training jobs are not finishing quick enough, you may consider scaling the
+computation aspect of the Hadoop cluster--its MapReduce capacity, which could
+be roughly measured by the number of mapper and reducer job slots. There are
+two factors that will increase the computation demand:
+
+* data size;
+* number of training algorithms.
+
+They will be explained respectively below.
+
+Before an algorithm trains, data will be preprocessed and copied to Hadoop
+Distributed Filesystem (HDFS). When the total data size exceed a certain size
+(data store dependent), it will be splitted into chunks, and multiple copy jobs
+will be spawned. Each of these jobs will occupy a mapper job slot. When your
+data size is large enough to cause many of these jobs to spawn and exceeds the
+number of available mapper job slots of your Hadoop cluster, you may consider
+adding additional TaskTracker nodes to handle the load.
+
+Large data size may also cause many mapper jobs to be spawned for computation.
+If that is the case, you may consider adding additional TaskTracker nodes.
+
+If you have many deployed algorithms, they may compete for job slots. If that
+is the case, you may consider adding additional TaskTracker nodes.
 
 
 Scheduler Server
@@ -104,14 +138,83 @@ Scheduler Server
 If you only train with non-distributed algorithms, you may need to scale the
 scheduler because non-distributed algorithms run on the same machine as the
 scheduler. Due to different nature of different algorithms, there is no
-standard rules to determine when you need to scale the scheduler.
+standard rules to determine when you need to scale the scheduler. If your
+scheduler server is:
+
+* heavily loaded by one non-distributed algorithm, you may need to scale up
+  your machine;
+
+* moderately loaded by one non-distributed algorithm, but heavily loaded when
+  there is more than one non-distributed algorithm training simultaneously,
+  you may consider adding more scheduler servers.
 
 
 Scaling
 -------
 
+In this section, we will cover some basics of scaling individual components of
+PredictionIO.
 
+
+Persistent Data Store
+~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+    As of writing, only MongoDB is supported. Other data stores will be
+    supported in the future eventually.
+
+If you decide to scale the persistent data store (MongoDB as of writing), it is
+most likely that your app and/or model data size exceeds the capacity of a
+single server. Assuming default settings, you should inspect these collections
+and decide what to scale:
+
+* predictionio_appdata
+
+  * users
+  * items
+  * u2iActions
+
+* predictionio_modeldata
+
+  * itemRecScores
+  * itemSimScores
 
 For details about horizontally scaling MongoDB, please refer to MongoDB's
 manual about `sharding
 <http://docs.mongodb.org/manual/core/sharding-introduction/>`_.
+
+
+Hadoop
+~~~~~~
+
+Scaling Hadoop can be a very complicated process. To go beyond the default
+single node setup, please refer to `Hadoop cluster setup
+<http://hadoop.apache.org/docs/r1.2.1/cluster_setup.html>`_.
+
+If you are running on a pretty powerful machine, you may try to increase the
+number of map and reduce task slots first by adding something similar to the
+following to ``vendors/hadoop-1.2.1/conf/mapred-site.xml``:
+
+.. code-block:: xml
+
+    <property>
+        <name>mapred.tasktracker.map.tasks.maximum</name>
+        <value>8</value>
+    </property>
+    <property>
+        <name>mapred.tasktracker.reduce.tasks.maximum</name>
+        <value>4</value>
+    </property>
+
+The above example assumed a 8-core machine with reasonable amount of memory
+and disk I/O performance (so that these are not limiting bottlenecks). For map
+tasks, varing between ``0.5*(# cpu cores)`` to ``2*(# cpu cores)`` is a good
+start. Reduce tasks usually require more resources, so it is a resonable start
+to set it at half the number of map task slots.
+
+
+Scheduler Server
+~~~~~~~~~~~~~~~~
+
+TBD

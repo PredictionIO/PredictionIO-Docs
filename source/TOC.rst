@@ -18,6 +18,7 @@ Table of Contents
    apis/index
    engines/itemrec/index
    engines/itemsim/index
+   deployment/distributed
 
 .. end-toc
 

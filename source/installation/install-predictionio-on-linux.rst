@@ -198,18 +198,7 @@ modify the following in ``conf/predictionio.conf``.
 MongoDB at a Non-local Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The default configuration assumes that you are running MongoDB at localhost:27017.
-If this is not the case, update the configuration in ``conf/predictionio.conf``.
-
-    io.prediction.commons.settings.db.type=mongodb
-
-    io.prediction.commons.settings.db.host=your.host.com
-
-    io.prediction.commons.settings.db.port=12345
-
-Update also other similar entries.
-
-Please use a remote host name that can be resolved by your host.
+Please refer to :ref:`remote-mongodb`
 
 
 Specify the Temporary Space

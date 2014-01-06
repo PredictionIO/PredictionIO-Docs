@@ -149,6 +149,81 @@ scheduler server is:
   you may consider adding more scheduler servers.
 
 
+Using Existing Infrastructure
+-----------------------------
+
+
+.. _remote-mongodb:
+
+Persistent Data Store
+~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+    As of writing, only MongoDB is supported. Other data stores will be
+    supported in the future eventually.
+
+If you already have a scalable MongoDB infrastructure, it is possible to point
+PredictionIO to use that instead. You may update the configuration in
+``conf/predictionio.conf`` similar to the following:
+
+    io.prediction.commons.settings.db.type=mongodb
+
+    io.prediction.commons.settings.db.host=your.host.com
+
+    io.prediction.commons.settings.db.port=12345
+
+Update also other similar entries.
+
+Please use a remote host name that can be resolved by your host.
+
+
+Hadoop
+~~~~~~
+
+If you already have an external Hadoop 1.x cluster, it is possible to point
+PredictionIO to use that instead.
+
+Modify your ``vendors/hadoop-1.2.1/conf/core-site.xml`` to use the remote HDFS,
+
+.. code-block:: xml
+
+    <configuration>
+        <property>
+            <name>fs.default.name</name>
+            <value>hdfs://namenode_host:namenode_port</value>
+        </property>
+    </configuration>
+
+where ``namenode_host`` is the hostname of your HDFS NameNode, and
+``namenode_port`` is the port number of your HDFS NameNode.
+
+Modify your ``vendors/hadoop-1.2.1/conf/mapred-site.xml`` to use the remote
+JobTracker,
+
+.. code-block:: xml
+
+    <configuration>
+        <property>
+            <name>mapred.job.tracker</name>
+            <value>jobtracker_host:jobtracker_port</value>
+        </property>
+    </configuration>
+
+where ``jobtracker_host`` is the hostname of your JobTracker, and
+``jobtracker_port`` is the port number of your JobTracker.
+
+Remove the following portion from ``vendors/hadoop-1.2.1/conf/hdfs-site.xml``
+(or the whole file, if it contains only the following portion),
+
+.. code-block:: xml
+
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+
 Scaling
 -------
 

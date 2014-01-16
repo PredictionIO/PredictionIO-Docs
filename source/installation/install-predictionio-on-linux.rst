@@ -29,6 +29,22 @@ In addition, the following software are required:
 * zip
 
 
+Upgrade Notes
+-------------
+
+
+Version 0.6.6
+~~~~~~~~~~~~~
+
+Due to significant changes in the prediction model format, if you are upgrading
+from a previous release, you will need to allow your model to be re-trained
+before any prediction output becomes available.
+
+Prediction models in the previous format will not be automatically removed. To
+reclaim space, please manually delete the ``itemRecScores`` and
+``itemSimScores`` collections from the model database.
+
+
 Installation
 ------------
 

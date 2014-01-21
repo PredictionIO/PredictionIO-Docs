@@ -135,15 +135,36 @@ Later you can execute
 
 .. code-block:: console
 
-    $ vagrant up
+    $ vagrant up --provision
 
-again to bring up the PredictionIO VM.
+to bring up the PredictionIO VM again.
 
 .. note::
 
-    If you are running Vagrant 1.3.x, you need to use
-    ``vagrant up --provision`` instead to start PredictionIO when the virtual
-    machine boots.
+    If you are running Vagrant 1.3.x or above, you need to specify the
+    --provision flag in order to load the provision script for subsequent
+    vagrant up. If the --provision flag is not defined, you may need to
+    start PredictionIO manually (see Troubleshooting at the end).
+
+    If you are using Vagrant 1.2.x or older versions, the
+    provision script is loaded even without the --provision flag.
+
+You should see the following console output which indicates the PredictionIO
+server is running properly:
+
+.. code-block:: console
+
+    Start PredictionIO ...
+    Trying to start admin server... started
+    Trying to start API server... started
+    Trying to start scheduler server... started
+
+.. note::
+
+    The provision script should start the PredictionIO server. If it fails
+    to start, you may try to stop and start PredictionIO manually
+    (see Troubleshooting at the end).
+
 
 You can completely remove the VM and delete all data with
 
@@ -157,5 +178,29 @@ You can completely remove the VM and delete all data with
     should be run inside the directory ``PredictionIO-Vagrant-x.y.z/``.
 
 See http://docs.vagrantup.com/v2/getting-started/teardown.html for more details.
+
+
+Troubleshooting
+~~~~~~~~~~~~~~~
+
+The vagrant provision script should start PredictionIO server. If you
+have problem starting PredictionIO and get the following error when run vagrant up:
+
+.. code-block:: console
+
+    Start PredictionIO ...
+    Trying to start admin server... failed (9000 unreachable)
+
+It's probably due to unclean shutdown of PredictionIO server. You may try to manually
+stop and then start PredictionIO again and see if it fixes the problem.
+
+To manually stop and start PredictionIO in VM (enter 'y' when it prompts for stopping or starting hadoop):
+
+.. code-block:: console
+
+    $ vagrant ssh
+    vagrant@precise64$ /opt/PredictionIO/bin/stop-all.sh
+    vagrant@precise64$ /opt/PredictionIO/bin/start-all.sh
+
 
 

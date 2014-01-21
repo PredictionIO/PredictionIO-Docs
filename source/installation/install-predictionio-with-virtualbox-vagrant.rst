@@ -144,7 +144,8 @@ to bring up the PredictionIO VM again.
     If you are running Vagrant 1.3.x or above, you need to specify the
     --provision flag in order to load the provision script for subsequent
     vagrant up. If the --provision flag is not defined, you may need to
-    start PredictionIO manually (see Troubleshooting at the end).
+    start PredictionIO manually
+    (Please see :ref:`vagrant-troubleshooting` at the end).
 
     If you are using Vagrant 1.2.x or older versions, the
     provision script is loaded even without the --provision flag.
@@ -163,7 +164,7 @@ server is running properly:
 
     The provision script should start the PredictionIO server. If it fails
     to start, you may try to stop and start PredictionIO manually
-    (see Troubleshooting at the end).
+    (Please see :ref:`vagrant-troubleshooting` at the end).
 
 
 You can completely remove the VM and delete all data with
@@ -179,6 +180,8 @@ You can completely remove the VM and delete all data with
 
 See http://docs.vagrantup.com/v2/getting-started/teardown.html for more details.
 
+
+.. _vagrant-troubleshooting:
 
 Troubleshooting
 ~~~~~~~~~~~~~~~

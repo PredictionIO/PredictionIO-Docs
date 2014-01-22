@@ -2,7 +2,9 @@
 Community-powered Projects
 ==========================
 
-The following projects are powered by the developer community of PredictionIO:
+The following projects are powered by the developer community of PredictionIO.
+To list your project here, please contact us or do a pull request through `PredictionIO Docs Project <https://github.com/PredictionIO/PredictionIO-Docs/>`_. 
+
 
 | 
 

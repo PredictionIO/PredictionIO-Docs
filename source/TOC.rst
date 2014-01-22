@@ -20,8 +20,15 @@ Table of Contents
    engines/itemsim/index
    deployment/distributed
 
-.. end-toc
+.. toctree::
+   :hidden:
 
+   index
+   contribution/index
+   contribution/projects
+   tutorials/index
+   
+.. end-toc
 
 Indices and tables
 ==================

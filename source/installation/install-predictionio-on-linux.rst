@@ -33,12 +33,44 @@ Upgrade Notes
 -------------
 
 
-Version 0.6.6
+Version 0.6.x
 ~~~~~~~~~~~~~
 
-Due to significant changes in the prediction model format, if you are upgrading
-from a previous release, you will need to allow your model to be re-trained
-before any prediction output becomes available.
+To upgrade your 0.6.x installation to the latest patch level release, start by
+downloading the latest binary release from the `Download
+<http://prediction.io/download>`_ page.
+
+1. Extract the binary release to a directory separate from your current
+   installation.
+
+2. Stop all PredictionIO services by running ``bin/stop-all.sh``.
+
+3. Make a backup of your current PredictionIO installation.
+
+4. From the new release, copy the content of ``bin`` and ``lib`` directories to
+   the current installation, and overwrite any files if necessary.
+
+5. From the new release, copy ``conf/init.json`` to the current installation
+   and replace the existing file.
+
+6. From the new release, open ``conf/predictionio.conf`` and compare it to your
+   existing copy. Transfer any new configuration keys to the current
+   configuration file.
+
+7. By now, your current installation should have all the latest files and
+   patches applied. Finish the upgrade process by running ``bin/setup.sh``.
+
+8. Start PredictionIO services by running ``bin/start-all.sh``.
+
+Congratulations! You have successfully upgraded your PredictionIO release.
+
+
+Version 0.6.6+ Specific Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Due to significant changes in the prediction model format from previous
+releases, if you are upgrading from a previous release, you will need to allow
+your model to be re-trained before any prediction output becomes available.
 
 Prediction models in the previous format will not be automatically removed. To
 reclaim space, please manually delete the ``itemRecScores`` and

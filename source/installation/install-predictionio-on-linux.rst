@@ -43,24 +43,27 @@ downloading the latest binary release from the `Download
 1. Extract the binary release to a directory separate from your current
    installation.
 
-2. Stop all PredictionIO services by running ``bin/stop-all.sh``.
+2. If you launched PredictionIO by using the EC2 image from the Amazon Web
+   Services Marketplace, the installation path is ``/opt/PredictionIO``.
 
-3. Make a backup of your current PredictionIO installation.
+3. Stop all PredictionIO services by running ``bin/stop-all.sh``.
 
-4. From the new release, copy the content of ``bin`` and ``lib`` directories to
+4. Make a backup of your current PredictionIO installation.
+
+5. From the new release, copy the content of ``bin`` and ``lib`` directories to
    the current installation, and overwrite any files if necessary.
 
-5. From the new release, copy ``conf/init.json`` to the current installation
+6. From the new release, copy ``conf/init.json`` to the current installation
    and replace the existing file.
 
-6. From the new release, open ``conf/predictionio.conf`` and compare it to your
+7. From the new release, open ``conf/predictionio.conf`` and compare it to your
    existing copy. Transfer any new configuration keys to the current
    configuration file.
 
-7. By now, your current installation should have all the latest files and
+8. By now, your current installation should have all the latest files and
    patches applied. Finish the upgrade process by running ``bin/setup.sh``.
 
-8. Start PredictionIO services by running ``bin/start-all.sh``.
+9. Start PredictionIO services by running ``bin/start-all.sh``.
 
 Congratulations! You have successfully upgraded your PredictionIO release.
 

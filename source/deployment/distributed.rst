@@ -103,7 +103,7 @@ Hadoop
 
 The Hadoop distribution is a large collection of components for building
 clusters that is capable of highly parallelized computation and distributed
-storage. Scaling Hadoop is a very board topic itself. In this section, we are
+storage. Scaling Hadoop is a very broad topic itself. In this section, we are
 going to touch a couple aspects briefly that are specific to PredictionIO. For
 full details of scaling Hadoop, please refer to http://hadoop.apache.org/.
 

@@ -40,5 +40,5 @@ Data Processing Stack
 ---------------------
 
 Built on top of solid data frameworks and technology, such as Hadoop, Cascading, Scalding and Mahout, 
-PredictionIO can handle a huge amount of data efficiently. A variety of machine learning algorithms are available for you to implemenet with just a few clicks.
+PredictionIO can handle a huge amount of data efficiently. A variety of machine learning algorithms are available for you to implement with just a few clicks.
 

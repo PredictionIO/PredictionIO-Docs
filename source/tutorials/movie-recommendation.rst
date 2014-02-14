@@ -146,7 +146,7 @@ Once you create an engine, the PredictionIO server will automatically start the 
     Engine Status:    Not Running: **Training the first data model**
 
 The engine will also automatically re-train with the latest imported data every hour.
-If you want to start the the training process manually, you can click the *running* button of the deployed algo and select *Train Data Model Now*.
+If you want to start the training process manually, you can click the *running* button of the deployed algo and select *Train Data Model Now*.
 
 5. Retrieve Prediction
 ----------------------

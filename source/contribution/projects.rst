@@ -30,6 +30,21 @@ To list your project here, please contact us or do a pull request through `Predi
   
 | 
 
+.. _contribution-meteor-label:
+
+**Meteor SDK**
+
+- https://github.com/mattuuh7/PredictionIO-Meteor 
+  
+  PredictionIO API library for Meteor Server-side, with latest Meteor dependency of 0..7.0.1, full sleuth unit tests.
+    
+  - Core Author: Matthew Chen
+    
+  - Status: Completed v0.1 & stable
+
+
+| 
+
 **Play Framework Plugin**
 
 - https://github.com/filosganga/play-predictionio 

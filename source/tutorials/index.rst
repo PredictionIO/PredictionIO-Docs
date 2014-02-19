@@ -2,11 +2,11 @@
 Tutorial
 ========
 
-.. index:: 
+.. index::
    single: tutorials
 
-The best way to learn PredictionIO is to try it yourself. Follow the tutorials below, 
-you can build some cool stuff very soon. 
+The best way to learn PredictionIO is to try it yourself. Follow the tutorials below,
+you can build some cool stuff very soon.
 
 Step-by-Step How To
 -------------------
@@ -17,4 +17,4 @@ Step-by-Step How To
    movie-recommendation
    android-client
    restaurant-recommendation
-   
+   custom-algo

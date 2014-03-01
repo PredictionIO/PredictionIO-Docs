@@ -46,6 +46,12 @@ Download `the latest release PredictionIO Vagrant project
 GitHub and unzip the file. The unzipped directory contains the necessary
 Vagrantfile and scripts to setup PredictionIO in the VM.
 
+.. note::
+
+    You may modify the following line in the Vagrantfile to change the memory and CPU configuration setting of the VM:
+    
+    v.customize ["modifyvm", :id, "--cpuexecutioncap", "90", "--memory", "2048"]
+
 Go to the unzipped directory ``PredictionIO-Vagrant-x.y.z/``
 *(x.y.z is the version number)*:
 

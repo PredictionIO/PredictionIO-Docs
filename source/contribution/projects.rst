@@ -5,6 +5,20 @@ Community-powered Projects
 The following projects are powered by the developer community of PredictionIO.
 To list your project here, please contact us or do a pull request through `PredictionIO Docs Project <https://github.com/PredictionIO/PredictionIO-Docs/>`_. 
 
+|
+
+.. _contribution-ruby-label:
+
+**Ruby Gem**
+
+- http://rubygems.org/gems/predictable and https://github.com/jsboulanger/predictable
+  
+  Ruby/Rails DSL for PredictionIO.
+    
+  - Core Author: Jean-Sebastien Boulanger
+    
+  - Status: It works - under active development
+ 
 
 | 
 
@@ -16,7 +30,7 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Core Author: Shaun Baker
     
-  - Status: Working - under active development
+  - Status: It works - under active development
   
 |  
 
@@ -26,7 +40,7 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Core Author: Kostyantyn Stepanyuk
     
-  - Status: Working - under active development
+  - Status: It works - under active development
   
 | 
 
@@ -53,7 +67,7 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Core Author: Filippo De Luca
     
-  - Status: Working - under active development
+  - Status: It works - under active development
   
 | 
 
@@ -65,7 +79,7 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Core Author: Ori Pekelman
     
-  - Status: Working Prototype - under active development
+  - Status: It works - under active development
   
 | 
 
@@ -77,7 +91,7 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Core Author: Steven Richardson
     
-  - Status: Working - under active development
+  - Status: It works - under active development
 
 | 
 
@@ -111,4 +125,4 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Core Author: Ankur Paul
     
-  - Status: Working - under active development
+  - Status: It works - under active development

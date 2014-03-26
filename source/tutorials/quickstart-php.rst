@@ -138,13 +138,7 @@ You may check if the training jobs are running properly through the PredictionIO
 
     tail -f logs/scheduler.err -f logs/scheduler.log
 
-If you see the some Hadoop jobs are running, then your setup is probably okay. Press Ctrl+C to exit log viewing.
-
-.. note::
-
-    Please be patient. It may take a long time to train the data model the first time even for very small dataset.
-    It is normal because PredictionIO implements an distributed algorithm by default, which is not optimized for small dataset.
-    You can change that later.
+If you can see some jobs are running, your setup is probably okay. Press Ctrl+C to exit log viewing.
 
 
 Retrieve Prediction

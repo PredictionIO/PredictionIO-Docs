@@ -57,8 +57,6 @@ Optional Parameters
 |                   | |  ISO 8601 format (eg. '2013-09-10T03:06:12Z'),                  |
 |                   | |  or milliseconds from 1970-01-01T00:00:00Z (eg. 1234567890000). |
 +-------------------+-------------------------------------------------------------------+
-| (any string)      | The values of any param without the prefix 'pio\_' will be stored.|
-+-------------------+-------------------------------------------------------------------+
 
 
 Sample Response

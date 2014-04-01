@@ -286,4 +286,4 @@ The default temporary space is system-specific. Under Linux, it is usually
 sometimes be too large for the default temporary space. To use a different
 temporary space, update the configuration in ``conf/predictionio.conf``.
 
-    io.prediction.commons.settings.local.temp.root=/a_big_temp_space
+    io.prediction.commons.settings.local.temp.root=/a_big_temp_space/

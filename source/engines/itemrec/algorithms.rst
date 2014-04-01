@@ -5,61 +5,99 @@ Item Recommendation: Built-in Algorithms
 A standard PredictionIO installation, which includes the Apache Mahout library, comes with the following algorithms:
 
 
-Scalding kNN Item-based Collaborative Filtering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GraphChi's Alternating Least Squares Collaborative Filtering (Single Machine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predict user preferences based on previous behaviors of users on similar items.
+Predict user preferences based on previous behavior of users using matrix
+factorization.
 
-Mahout's Threshold Item-based Collaborative Filtering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GraphChi's CCD++ Alternating Least Squares Collaborative Filtering with Parallel Coordinate Descent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predict user preferences based on previous behaviors of users on similar items.
+Predict user preferences based on previous behavior of users using matrix
+factorization.
 
-Mahout's kNN Item-based Collaborative Filtering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predict user preferences based on previous behaviors of users on similar items.
+GraphChi's CLiMF Collaborative Filtering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mahout's Alternating Least Squares with Weighted Lambda-Regulatization
+Predict user preferences based on previous behavior of users using matrix
+factorization with MRR (mean reciprocal rank) optimization.
+
+
+GraphChi's Stochastic Gradient Descent Collaborative Filtering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users using matrix
+factorization.
+
+
+Mahout's Alternating Least Squares with Weighted Lambda-Regularization (Distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users using matrix
+factorization.
+
+
+Mahout's Alternating Least Squares with Weighted Lambda-Regularization (Single Machine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users using matrix
+factorization.
+
+
+Mahout's kNN Item-based Collaborative Filtering (Single Machine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users on similar items,
+and take into account results that are within a configurable neighborhood and
+threshold.
+
+
+Mahout's kNN User-based Collaborative Filtering (Single Machine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users who are
+k-nearest neighbors.
+
+
+Mahout's SVD++ Recommender (Single Machine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users using matrix
+factorization.
+
+
+Mahout's SVD-RatingSGD Recommender (Single Machine)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users using matrix
+factorization.
+
+
+Mahout's Threshold Item-based Collaborative Filtering (Distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Predict user preferences based on previous behavior of users on similar items,
+and take into account results that are above a configurable threshold.
+
+
+Mahout's Threshold User-based Collaborative Filtering (Single Machine)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predict user preferences based on previous behaviors of users.
+Predict user preferences based on previous behavior of users whose similarity
+meets or exceeds a configurable threshold.
 
-Mahout's kNN User Based Collaborative Filtering (Non-distributed)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predict user preferences based on previous behaviors of users who are the k-nearest neighbors (Non-distributed).
+Random Rank (Single Machine / Distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mahout's Threshold User Based Collaborative Filtering (Non-distributed)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Predict user preferences randomly. (As a baseline algorithm for evaluation
+purposes.)
 
-Predict user preferences based on previous behaviors of users whose similarity meets or exceeds a certain threshold (Non-distributed).
 
-Mahout's SlopeOne Rating Based Collaborative Filtering (Non-distributed)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Latest Rank (Distributed)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Predict user preferences based on average difference in preference values between new items and the items for which the user has indicated preferences (Non-distributed).
-
-Mahout's Alternating Least Squares with Weighted Lambda-Regulatization (Non-distributed)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Predict user preferences using matrix factorization (Non-distributed).
-
-Mahout's SVD-RatingSGD Recommender (Non-distributed)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Predict user preferences using matrix factorization (Non-distributed).
-
-Mahout's SVDPlusPlus Recommender (Non-distributed)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Predict user preferences using matrix factorization (Non-distributed).
-
-Random Rank
-~~~~~~~~~~~
-
-Predict user preferences randomly. (see it as a baseline algorithm for evaluation purposes)
-
-Latest Rank
-~~~~~~~~~~~
-
-Recommend latest items to users. (see this non-personal algorithm as a baseline for evaluation purposes)
+Recommend latest items to users. (As a non-personal baseline algorithm for
+evaluation purposes.)

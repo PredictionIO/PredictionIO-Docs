@@ -10,12 +10,12 @@ The default PredictionIO setup assumes that you have the following environment:
 
 * A recent version of Linux (64-bit is recommended)
 * Java 6+
+* MongoDB 2.2+ (http://www.mongodb.org/)
 
-In addition, the following software are required:
+The following software are optional:
 
 * Apache Hadoop 1.0+ (or any compatible distributions that supports the
   "hadoop jar" command; see :ref:`hadoop2`)
-* MongoDB 2.2+ (http://www.mongodb.org/)
 
 .. note::
 
@@ -33,10 +33,18 @@ Upgrade Notes
 -------------
 
 
-Version 0.6.x
+Version 0.7.x
 ~~~~~~~~~~~~~
 
-To upgrade your 0.6.x installation to the latest patch level release, start by
+The 0.7.x series uses a new convention for its internal meta data and they must
+be converted if you are upgrading from a previous release. To do so, simply run
+``bin/standardized-info-ids`` in the PredictionIO 0.7.x installation directory.
+
+
+Version 0.6.x - 0.7.x
+~~~~~~~~~~~~~~~~~~~~~
+
+To upgrade your installation to the latest patch level release, start by
 downloading the latest binary release from the `Download
 <http://prediction.io/download>`_ page.
 
@@ -103,8 +111,12 @@ the extraction location.
     $ cd PredictionIO-<version>
 
 
-Preparing Your System for Hadoop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Preparing Your System for Hadoop (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+    This section is optional unless you plan to run Hadoop based algorithms.
 
 If you do not have Hadoop installed, the ``bin/setup-vendors.sh`` script described
 in the next step will set up one for you. Before that, there are a few steps
@@ -171,14 +183,24 @@ Afterwards, run the main setup script:
     $ bin/setup.sh
 
 
+Configuring GraphChi
+~~~~~~~~~~~~~~~~~~~~
+
+If you plan to run single machine GraphChi algorithms, please adjust its
+configuration according to your available hardware resource.
+
+#.  Open and edit ``conf/graphchi.cnf``.
+#.  Pick the set of configuration that match closely to your hardware resource.
+
+
 Starting PredictionIO
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
-    PredictionIO depends on both **Hadoop** and **MongoDB** be running to work
-    properly. If you did not depend on ``bin/setup-vendors.sh`` to install
-    them, make sure they are set up properly and running.
+    PredictionIO depends on **MongoDB** be running to work properly. If you did
+    not depend on ``bin/setup-vendors.sh`` to install it, make sure it is set
+    up properly and running.
 
 To start all PredictionIO services:
 
@@ -264,4 +286,4 @@ The default temporary space is system-specific. Under Linux, it is usually
 sometimes be too large for the default temporary space. To use a different
 temporary space, update the configuration in ``conf/predictionio.conf``.
 
-    io.prediction.commons.settings.local.temp.root=/a_big_temp_space
+    io.prediction.commons.settings.local.temp.root=/a_big_temp_space/

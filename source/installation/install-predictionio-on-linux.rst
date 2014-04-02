@@ -47,6 +47,9 @@ The 0.7.x series uses a new convention for its internal meta data and they must
 be converted if you are upgrading from a previous release. To do so, simply run
 ``bin/standardized-info-ids`` in the PredictionIO 0.7.x installation directory.
 
+Make sure to re-run ``bin/setup.sh`` and ``bin/setup-vendors.sh`` to
+automatically download GraphChi and populate algorithms' information properly.
+
 If you intend to switch over to GraphChi algorithms, please also make sure you
 have read the note about GraphChi in the section above.
 

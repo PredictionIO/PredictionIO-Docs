@@ -28,6 +28,13 @@ The following software are optional:
 * unzip
 * zip
 
+.. note::
+
+   If you intend to use GraphChi algorithms, you may want to make sure your
+   system has GNU libgomp installed. On Redhat-based systems, the library can
+   be installed by ``yum install libgomp``. On Debian-based systems, the
+   library can be installed by ``apt-get install libgomp1``.
+
 
 Upgrade Notes
 -------------
@@ -39,6 +46,9 @@ Version 0.7.x
 The 0.7.x series uses a new convention for its internal meta data and they must
 be converted if you are upgrading from a previous release. To do so, simply run
 ``bin/standardized-info-ids`` in the PredictionIO 0.7.x installation directory.
+
+If you intend to switch over to GraphChi algorithms, please also make sure you
+have read the note about GraphChi in the section above.
 
 
 Version 0.6.x - 0.7.x

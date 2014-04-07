@@ -43,20 +43,6 @@ Upgrade Notes
 Version 0.7.x
 ~~~~~~~~~~~~~
 
-The 0.7.x series uses a new convention for its internal meta data and they must
-be converted if you are upgrading from a previous release. To do so, simply run
-``bin/standardized-info-ids`` in the PredictionIO 0.7.x installation directory.
-
-Make sure to re-run ``bin/setup.sh`` and ``bin/setup-vendors.sh`` to
-automatically download GraphChi and populate algorithms' information properly.
-
-If you intend to switch over to GraphChi algorithms, please also make sure you
-have read the note about GraphChi in the section above.
-
-
-Version 0.6.x - 0.7.x
-~~~~~~~~~~~~~~~~~~~~~
-
 To upgrade your installation to the latest patch level release, start by
 downloading the latest binary release from the `Download
 <http://prediction.io/download>`_ page.
@@ -74,21 +60,29 @@ downloading the latest binary release from the `Download
 5.  From the new release, copy the content of ``bin`` and ``lib`` directories to
     the current installation, and overwrite any files if necessary.
 
-6.  From the new release, copy ``conf/init.json`` to the current installation
+6.  From the new release, copy ``vendors/mahout-distribution-0.9`` to the
+    current installation.
+
+7.  From the new release, copy ``conf/init.json`` to the current installation
     and replace the existing file.
 
-7.  From the new release, open ``conf/predictionio.conf`` and compare it to your
+8.  From the new release, open ``conf/predictionio.conf`` and compare it to your
     existing copy. Transfer any new configuration keys to the current
     configuration file.
 
-8.  From the new release, open ``conf/quartz.properties`` and compare it to your
+9.  From the new release, open ``conf/quartz.properties`` and compare it to your
     existing copy. Transfer any new configuration keys to the current file. If
     the current file does not exist, just copy it over.
 
-9.  By now, your current installation should have all the latest files and
-    patches applied. Finish the upgrade process by running ``bin/setup.sh``.
+10. The 0.7.x series uses a new convention for its internal meta data and they
+    must be converted when you upgrade from a previous release. To do so,
+    simply run ``bin/standardized-info-ids``.
 
-10. Start PredictionIO services by running ``bin/start-all.sh``.
+11. By now, your current installation should have all the latest files and
+    patches applied. Finish the upgrade process by running ``bin/setup.sh`` and
+    ``bin/setup-vendors.sh``.
+
+12. Start PredictionIO services by running ``bin/start-all.sh``.
 
 Congratulations! You have successfully upgraded your PredictionIO release.
 

@@ -74,15 +74,18 @@ downloading the latest binary release from the `Download
     existing copy. Transfer any new configuration keys to the current file. If
     the current file does not exist, just copy it over.
 
-10. The 0.7.x series uses a new convention for its internal meta data and they
+10. From the new release, copy ``conf/graphchi.cnf`` to the current
+    installation.
+
+11. The 0.7.x series uses a new convention for its internal meta data and they
     must be converted when you upgrade from a previous release. To do so,
     simply run ``bin/standardized-info-ids``.
 
-11. By now, your current installation should have all the latest files and
+12. By now, your current installation should have all the latest files and
     patches applied. Finish the upgrade process by running ``bin/setup.sh`` and
     ``bin/setup-vendors.sh``.
 
-12. Start PredictionIO services by running ``bin/start-all.sh``.
+13. Start PredictionIO services by running ``bin/start-all.sh``.
 
 Congratulations! You have successfully upgraded your PredictionIO release.
 

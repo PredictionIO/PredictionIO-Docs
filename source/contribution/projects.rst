@@ -126,3 +126,18 @@ To list your project here, please contact us or do a pull request through `Predi
   - Core Author: Ankur Paul
     
   - Status: It works - under active development
+  
+| 
+
+.. _contribution-spree-label:
+
+**Spree Commerce Product Recommendations**
+
+- https://github.com/Willianvdv/spree_prediction_io and https://rubygems.org/gems/spree_prediction_io
+  
+Ruby Gem for using PredictionIO's recommendation engines with Spree Commerce shops.
+    
+  - Core Author: Willian van der Velde & David Jones
+    
+  - Status: It works - under active development
+  

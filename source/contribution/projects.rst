@@ -85,7 +85,7 @@ To list your project here, please contact us or do a pull request through `Predi
 
 **Magento ECommerce Extension**
 
-- https://github.com/richdynamix/Similar-Products
+- https://github.com/richdynamix/Similar-Products and http://www.magentocommerce.com/magento-connect/catalog/product/view/id/22547/s/similar-products-1/
   
   Similar Products is a Magento eCommerce extension that utilizes the Similarity engine of PredictionIO to create a more personalized suggestion of up-sell products on the Magento product page. Tracking customers product views and purchases the PredictionIO engine provides fresh and relevant up-sell suggestions for the current customer.
     
@@ -135,7 +135,7 @@ To list your project here, please contact us or do a pull request through `Predi
 
 - https://github.com/Willianvdv/spree_prediction_io and https://rubygems.org/gems/spree_prediction_io
   
-Ruby Gem for using PredictionIO's recommendation engines with Spree Commerce shops.
+  Ruby Gem for using PredictionIO's recommendation engines with Spree Commerce shops.
     
   - Core Author: Willian van der Velde & David Jones
     

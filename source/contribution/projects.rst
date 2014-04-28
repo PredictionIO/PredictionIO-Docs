@@ -141,3 +141,17 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Status: It works - under active development
   
+| 
+
+.. _contribution-homebrew-label:
+
+**Homebrew Formula for PredictionIO**
+
+- https://github.com/Homebrew/homebrew/blob/master/Library/Formula/predictionio.rb and http://brewformulas.org/Predictionio
+  
+  Homebrew (the missing package manager for OS X) formula for PredictionIO.
+    
+  - Core Author: David Paniz & Manuel Vidaurre
+    
+  - Status: It works - under active development
+  

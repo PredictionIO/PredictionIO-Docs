@@ -27,7 +27,8 @@ Required Parameters
 |              | | characters.                                          |
 +--------------+--------------------------------------------------------+
 | pio_itypes   | |  An array of item types that the item belongs to.    |
-|              | |  Item type cannot contain the tab (\\t) character.   |
+|              | |  Item type cannot contain the tab (\\t) or comma (,) |
+|              | |  character.                                          |
 |              | |  Comma-separated string, e.g. "type1, type2"         |
 +--------------+--------------------------------------------------------+
 

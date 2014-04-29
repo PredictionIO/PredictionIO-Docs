@@ -30,6 +30,11 @@ PredictionIO runs on JVM, so it runs on most platforms. Choose your platform bel
    install-predictionio-on-os-x
    install-predictionio-on-windows
 
+You may also use one of the community-contributed packages to install PredictionIO:
+
+- :ref:`Installing PredictionIO with Docker <contribution-docker-label>`
+- :ref:`Installing PredictionIO with Homebrew <contribution-homebrew-label>`
+
 .. note::
 
    To upgrade from a previous version properly, please run **bin/setup.sh** after you install the new binary.

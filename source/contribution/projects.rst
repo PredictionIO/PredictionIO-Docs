@@ -5,8 +5,7 @@ Community-powered Projects
 The following projects are powered by the developer community of PredictionIO.
 To list your project here, please contact us or do a pull request through `PredictionIO Docs Project <https://github.com/PredictionIO/PredictionIO-Docs/>`_. 
 
-|
-
+| 
 .. _contribution-ruby-label:
 
 **Ruby Gem**
@@ -71,18 +70,6 @@ To list your project here, please contact us or do a pull request through `Predi
   
 | 
 
-**Docker Installation for PredictionIO**
-
-- https://github.com/OriPekelman/docker_prediction_io 
-  
-  This project dockerizes PredictionIO.
-    
-  - Core Author: Ori Pekelman
-    
-  - Status: It works - under active development
-  
-| 
-
 **Magento ECommerce Extension**
 
 - https://github.com/richdynamix/Similar-Products and http://www.magentocommerce.com/magento-connect/catalog/product/view/id/22547/s/similar-products-1/
@@ -140,6 +127,29 @@ To list your project here, please contact us or do a pull request through `Predi
   - Core Author: Willian van der Velde & David Jones
     
   - Status: It works - under active development
+
+|
+.. _contribution-docker-label:
+
+**Docker Installation for PredictionIO**
+
+- https://github.com/mingfang/docker-predictionio 
+  
+  Run PredictionIO inside Docker
+    
+  - Core Author: Ming Fang
+    
+  - Status: It works with PredictionIO v0.7- under active development
+  
+|  
+
+- https://github.com/OriPekelman/docker_prediction_io 
+  
+  This project dockerizes PredictionIO.
+    
+  - Core Author: Ori Pekelman
+    
+  - Status: It works with PredictionIO v0.6.3- under active development
   
 | 
 

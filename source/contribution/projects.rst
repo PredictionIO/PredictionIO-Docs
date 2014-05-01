@@ -165,3 +165,15 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Status: It works - under active development
   
+
+**Clojure client**
+
+- https://github.com/timgluz/shaman and Clojars: https://clojars.org/shaman
+  
+  A simple Clojure wrapper for PredictionIO.
+    
+  - Core Author: Timo Sulg
+    
+  - Status: It works - under active development.
+  
+|  

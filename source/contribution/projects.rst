@@ -128,20 +128,21 @@ To list your project here, please contact us or do a pull request through `Predi
     
   - Status: It works - under active development
 
-|
+| 
+
 .. _contribution-docker-label:
 
 **Docker Installation for PredictionIO**
 
 - https://github.com/mingfang/docker-predictionio 
-  
-  Run PredictionIO inside Docker
+
+  Run PredictionIO inside Docker.
     
   - Core Author: Ming Fang
     
   - Status: It works with PredictionIO v0.7- under active development
   
-|  
+| 
 
 - https://github.com/OriPekelman/docker_prediction_io 
   
@@ -164,10 +165,13 @@ To list your project here, please contact us or do a pull request through `Predi
   - Core Author: David Paniz & Manuel Vidaurre
     
   - Status: It works - under active development
-  
 
+| 
+
+.. _contribution-clojure-label:
+   
 **Clojure client**
-
+   
 - https://github.com/timgluz/shaman and Clojars: https://clojars.org/shaman
   
   A simple Clojure wrapper for PredictionIO.
@@ -175,5 +179,19 @@ To list your project here, please contact us or do a pull request through `Predi
   - Core Author: Timo Sulg
     
   - Status: It works - under active development.
+   
+| 
   
-|  
+.. _contribution-dot-net-label:
+
+**.NET/#C SDK**
+
+- https://github.com/orbyone/Sensible.PredictionIO.NET
+  
+  A C# wrapper for PredictionIO.
+    
+  - Core Author: Themos Piperakis
+    
+  - Status: It works - under active development.
+   
+| 

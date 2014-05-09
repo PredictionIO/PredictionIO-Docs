@@ -18,6 +18,7 @@ Table of Contents
    apis/index
    engines/itemrec/index
    engines/itemsim/index
+   engines/itemrank/index  
    deployment/distributed
 
 .. toctree::
@@ -27,7 +28,7 @@ Table of Contents
    contribution/index
    contribution/projects
    tutorials/index
-   
+
 .. end-toc
 
 Indices and tables

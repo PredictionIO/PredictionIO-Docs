@@ -171,7 +171,7 @@ The engine name should match the name of the engine you created in step 4. This 
 
 The above code tries to retrieve the item recommendations from PredictoinIO and catch the ItemRecNotFoundError exception.
 
-To run this **movic_rec_app.py**, execute the following in terminal:
+To run this **movie_rec_app.py**, execute the following in terminal:
 
 .. code-block:: console
 

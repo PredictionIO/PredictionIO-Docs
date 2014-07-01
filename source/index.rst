@@ -60,6 +60,10 @@ Stack Overflow is another great place to ask technical questions about Predictio
 
 The code is on GitHub. The best way to send a patch is with a `GitHub <https://github.com/PredictionIO/>`_ pull request. `PredictionIO JIRA <http://predictionio.atlassian.net/>`_ is the best way to file a bug report.
 
+**REQUEST A NEW FEATURE**
+
+Submit a feature request, or vote for one, `here <https://predictionio.uservoice.com/forums/219398-general/filters/top>`_.
+
 
 Additional Machine Learning Resources
 *************************************

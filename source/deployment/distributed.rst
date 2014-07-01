@@ -167,15 +167,35 @@ If you already have a scalable MongoDB infrastructure, it is possible to point
 PredictionIO to use that instead. You may update the configuration in
 ``conf/predictionio.conf`` similar to the following:
 
+.. code-block:: javascript
+
     io.prediction.commons.settings.db.type=mongodb
-
     io.prediction.commons.settings.db.host=your.host.com
-
     io.prediction.commons.settings.db.port=12345
 
 Update also other similar entries.
 
 Please use a remote host name that can be resolved by your host.
+
+
+MongoDB Replica Sets
+....................
+
+If you have a MongoDB replica set, you can specify your set members similar to
+the following:
+
+.. code-block:: javascript
+
+    io.prediction.commons.settings.db.type=mongodb
+    io.prediction.commons.settings.db.host=[rs0.yourhost.com,rs1.yourhost.com,rs2.yourhost.com]
+    io.prediction.commons.settings.db.port=[27017,27018,27019]
+
+Notice that the order of hosts and ports correspond to each other. In the above
+example, it tells PredictionIO to connect to these replica set members:
+
+* rs0.yourhost.com:27017
+* rs1.yourhost.com:27018
+* rs2.yourhost.com:27019
 
 
 Hadoop

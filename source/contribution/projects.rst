@@ -170,9 +170,9 @@ To list your project here, please contact us or do a pull request through `Predi
 
 .. _contribution-clojure-label:
 
-**Clojure client**
+**Clojure Client**
 
-- https://github.com/timgluz/shaman and Clojars: https://clojars.org/shaman
+- https://github.com/timgluz/shaman and https://clojars.org/shaman
 
   A simple Clojure wrapper for PredictionIO.
 
@@ -205,6 +205,34 @@ To list your project here, please contact us or do a pull request through `Predi
   A JavaScript interface for PredictionIO.
 
   - Core Author: Qui Nguyen
+
+  - Status: It works - under active development.
+
+|
+
+.. _contribution-golang-label:
+
+**Golang Package**
+
+- https://github.com/bububa/predictionio-go
+
+  A Golang package for PredictionIO.
+
+  - Core Author: Syd Xu
+
+  - Status: It works - under active development.
+
+|
+
+.. _contribution-lavarel-label:
+
+**Lavarel Client**
+
+- https://github.com/bratao/PredictionIO and http://packalyst.com/packages/package/bratao/prediction-io
+
+  A Laravel library providing a client for PredictionIO.
+
+  - Core Author: Bruno Cabral
 
   - Status: It works - under active development.
 
